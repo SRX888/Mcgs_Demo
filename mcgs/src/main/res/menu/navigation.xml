@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--TODO:(1.1)修改底部按钮的图标和文字-->
+
+    <item
+        android:id="@+id/navigation_choiceness"
+        android:icon="@drawable/ic_book_black_24dp"
+        android:title="@string/title_docment" />
+
+    <item
+        android:id="@+id/navigation_discover"
+        android:icon="@drawable/ic_apps_black_24dp"
+        android:title="@string/title_application" />
+
+    <item
+        android:id="@+id/navigation_service"
+        android:icon="@drawable/ic_settings_black_24dp"
+        android:title="@string/title_settings" />
+
+
+
+</menu>

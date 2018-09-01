@@ -106,7 +106,7 @@ public class DocumentFragment extends Fragment {
                             .beginTransaction();
                     fragmentTransaction.replace(R.id.fragment_container_doc, mDocFragment);
                     Bundle bundle = new Bundle();
-                    bundle.putString(DocFragment.TAG, strs[position]);
+                    bundle.putInt(DocFragment.TAG,position);
                     mDocFragment.setArguments(bundle);
                     fragmentTransaction.commit();
                 }

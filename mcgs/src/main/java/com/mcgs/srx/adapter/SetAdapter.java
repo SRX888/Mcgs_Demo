@@ -44,15 +44,31 @@ public class SetAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
-		convertView = LayoutInflater.from(context).inflate(R.layout.listview_item_set, null);
-		TextView tv = (TextView) convertView.findViewById(R.id.tv);
-		mPosition = position;
-		tv.setText(strings[position]);
-		if (position == SettingFragment.mPosition) {
-			convertView.setBackgroundResource(R.drawable.tongcheng_all_bg01);
-		} else {
-			convertView.setBackgroundColor(Color.parseColor("#f4f4f4"));
+
+		View view = null;
+		ViewHodler mViewHodler = null;
+
+		if(convertView == null) {
+			view = LayoutInflater.from(context).inflate(R.layout.listview_item_set, null);
+			mViewHodler = new ViewHodler();
+			mViewHodler.mTextView = (TextView) view.findViewById(R.id.tv);
+			view.setTag(mViewHodler);
+		}else{
+			view = convertView;
+			mViewHodler = (ViewHodler) view.getTag();
 		}
-		return convertView;
+
+		mPosition = position;
+		mViewHodler.mTextView.setText(strings[position]);
+		if (position == SettingFragment.mPosition) {
+			view.setBackgroundResource(R.drawable.tongcheng_all_bg01);
+		} else {
+			view.setBackgroundColor(Color.parseColor("#f4f4f4"));
+		}
+		return view;
+	}
+
+	private static  class  ViewHodler{
+		TextView mTextView;
 	}
 }

@@ -5,17 +5,7 @@
     <string name="title_settings">设置</string>
 
 
-
-
     <string name="app_rotation_title">屏幕旋转</string>
-
-
-
-
-
-
-
-
 
 
     <string name="ethernet_documentation">"通过比较网桥优先级选取根网桥(给定广播域内只有一个根网桥)。\n" +
@@ -137,6 +127,23 @@
     <string name="btn_restore">恢复出厂默认配置</string>
     <string name="btn_restore_message">是否恢复出厂默认配置?</string>
     <string name="rotation_summry">屏幕旋转应用说明：由于该设备没有Sensors没有自动旋转的功能，该功能实现的设备可以实现0,90,180,270四个角度的旋转。恢复出厂默认配置，还原出厂时的默认角度</string>
+    <string name="ethernet_on">以太网</string>
+
+
+    <string name="ethernet_ip_settings_invalid_ip">"请填写正确的格式"</string>
+    <string name="save_satic_ethernet">"保存"</string>
+    <string name="eth_ip_settings_please_complete_settings">"网络信息不完整，请填写完整"</string>
+    <string name="enthernet_static">"使用静态设置"</string>
+    <string name="enthernet_ip_address">"IP地址"</string>
+    <string name="enthernet_gateway">"网关"</string>
+    <string name="enthernet_netmask">"子网掩码"</string>
+    <string name="enthernet_dns1">"域名1"</string>
+    <string name="enthernet_dns2">"域名2"</string>
+    <string name="ethernet_quick_toggle_title">"以太网"</string>
+    <string name="open_ethernet">"打开以太网"</string>
+    <string name="ethernet_static_ip_settings_title">"配置以太网"</string>
+    <string name="ethernet_settings">"以太网"</string>
+    <string name="ethernet_settings_title">"以太网"</string>
 
 
 </resources>

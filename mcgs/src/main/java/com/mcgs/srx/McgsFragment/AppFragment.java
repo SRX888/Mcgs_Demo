@@ -3,6 +3,7 @@ package com.mcgs.srx.McgsFragment;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -13,12 +14,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Switch;
 
 import com.mcgs.srx.R;
 import com.mcgs.srx.Util.JustifyTextView;
 import com.mcgs.srx.Util.Utils;
+import com.mcgs.srx.ethernet.EthernetSetting;
 
 public class AppFragment extends Fragment implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
 
@@ -31,7 +35,6 @@ public class AppFragment extends Fragment implements View.OnClickListener, Radio
     private JustifyTextView mTextView;
 
 
-
     //app rotation statrt
     private static final String KEY_ROTATION = "key_rotation";
     private RadioButton mRadioRotation_0;
@@ -42,14 +45,20 @@ public class AppFragment extends Fragment implements View.OnClickListener, Radio
     private Button mRotationRestore;
     //app rotation end
 
+
+    //app ethernet start
+    private static final String KEY_EHTERNET_STATUS = "key_ethernet_status";
+    private Switch mSwitchEthernet;
+    private Button mBtnEthernetSetings;
+    //app ethernet end
+
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             switch (msg.what) {
                 case 0:
-                    mTextView = (JustifyTextView) view.findViewById(R.id.tv_title);
-                    mTextView.setText(R.string.ethernet_documentation);
+                    initEthernetView();
                     break;
                 case 1:
                     mTextView = (JustifyTextView) view.findViewById(R.id.tv_title);
@@ -101,11 +110,42 @@ public class AppFragment extends Fragment implements View.OnClickListener, Radio
 
     }
 
+
+    private void initEthernetView() {
+        mSwitchEthernet = (Switch) view.findViewById(R.id.eth_switch_on);
+        mSwitchEthernet.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton button, boolean b) {
+                if (b) {
+                    //TODO
+                    mUtils.setBooleanPreference(KEY_EHTERNET_STATUS,b);
+                    mBtnEthernetSetings.setEnabled(b);
+                } else {
+                    //TODO
+                    mUtils.setBooleanPreference(KEY_EHTERNET_STATUS,b);
+                    mBtnEthernetSetings.setEnabled(b);
+                }
+
+            }
+        });
+        mBtnEthernetSetings = (Button) view.findViewById(R.id.eth_setting);
+        mBtnEthernetSetings.setOnClickListener(this);
+        boolean isEthernetOn = mUtils.getBooleanPreference(KEY_EHTERNET_STATUS, false);
+        mBtnEthernetSetings.setEnabled(isEthernetOn);
+        mSwitchEthernet.setChecked(isEthernetOn);
+    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.rotation_btn_restore:
                 showRotationDialogRestore();
+                break;
+            case R.id.eth_setting:
+                Log.i("srx", "onClick:eth_settingeth_setting ");
+                Intent intent = new Intent();
+                intent.setClass(mContext, EthernetSetting.class);
+                startActivity(intent);
                 break;
 
         }
@@ -149,10 +189,10 @@ public class AppFragment extends Fragment implements View.OnClickListener, Radio
 
         position = getArguments().getInt(TAG);
         mHandler.sendEmptyMessage(position);
-        Log.i("test", "onCreateView:==== "+position);
+        Log.i("test", "onCreateView:==== " + position);
         switch (position) {
             case 0:
-                view = mUtils.getFragmentView(mContext, R.layout.appfragment);
+                view = mUtils.getFragmentView(mContext, R.layout.app_ethernet_fragment);
                 break;
             case 1:
                 view = mUtils.getFragmentView(mContext, R.layout.appfragment);
@@ -188,8 +228,8 @@ public class AppFragment extends Fragment implements View.OnClickListener, Radio
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog,
                                                 int which) {
-                              mUtils.setIntPreference(KEY_ROTATION,0);
-                              mRadioRotation_0.setChecked(true);
+                                mUtils.setIntPreference(KEY_ROTATION, 0);
+                                mRadioRotation_0.setChecked(true);
 
                             }
                         }).setNegativeButton(android.R.string.cancel, null)

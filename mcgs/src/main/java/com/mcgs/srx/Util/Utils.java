@@ -53,6 +53,13 @@ public class Utils {
         return mPreferences.getBoolean(key, value);
     }
 
+    public void setBooleanPreference(String key, boolean value){
+       if(D) Log.i(TAG, "setBooleanPreference: key: " + key + " value :" + value);
+        mEditor.putBoolean(key,value);
+        mEditor.commit();
+
+    }
+
     public String getStringPreference(String key, String value) {
         if (D) Log.i(TAG, "getStringPreference: key: " + key + " value :" + value);
         return mPreferences.getString(key, value);

@@ -7,6 +7,12 @@
 
 
 
+    <string name="app_rotation_title">屏幕旋转</string>
+
+
+
+
+
 
 
 
@@ -124,11 +130,13 @@
             "图1展示了两种模式的异同。当Android设备处于主机模式时，它扮演USB主机角色并为总线供电。当Android设备处于附件模式时，被连接的USB硬件（在这种情况下是一个Android USB附件）扮演主机角色并给总线供电。Android通过两种模式，来支持各种USB外围设备和Android USB附件（硬件实现了Android的附件协议）：USB附件模式和USB主机模式。在USB附件模式下，外部 USB 硬件充当USB主机。（作为）附件的例子，包括机器人控制器、扩展插座（docking stations）、诊断和音乐设备、电子报亭（kiosks）、读卡器等其他设备。这种模式给予不具备主机功能的Android设备，与USB硬件通信的能力。Android USB附件，必须被设计为与装有Android的设备一起工作，并且必须遵循Android附件通讯协议。在USB主机模式下，装有Android的设备扮演着主机的角色。（外围）设备的例子，包括数码像机，键盘，鼠标和游戏控制器。那些适应面很广的USB设备，仍可以与Android应用交互，前提是这些Android应用可以正确的与这些设备通讯。\n" +
             "\n" +
             "图1展示了两种模式的异同。当Android设备处于主机模式时，它扮演USB主机角色并为总线供电。当Android设备处于附件模式时，被连接的USB硬件（在这种情况下是一个Android USB附件）扮演主机角色并给总线供电。"</string>
-
-
-
-
-
+    <string name="rotation_default">屏幕旋转默认角度</string>
+    <string name="rotation_90">屏幕旋转90度</string>
+    <string name="rotation_180">屏幕旋转180度</string>
+    <string name="rotation_270">屏幕旋转270度</string>
+    <string name="btn_restore">恢复出厂默认配置</string>
+    <string name="btn_restore_message">是否恢复出厂默认配置?</string>
+    <string name="rotation_summry">屏幕旋转应用说明：由于该设备没有Sensors没有自动旋转的功能，该功能实现的设备可以实现0,90,180,270四个角度的旋转。恢复出厂默认配置，还原出厂时的默认角度</string>
 
 
 </resources>

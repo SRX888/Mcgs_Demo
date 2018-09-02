@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:fadingEdge="vertical"
+            android:scrollbars="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/rotation_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/app_rotation_title"
+            android:textSize="45dp"/>
+
+        <RadioGroup
+            android:id="@+id/radiogroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/rotation_title"
+            android:layout_marginLeft="25dp"
+            android:orientation="vertical">
+
+
+            <RadioButton
+                android:id="@+id/rotation_0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:checked="true"
+                android:text="@string/rotation_default"/>
+
+            <RadioButton
+                android:id="@+id/rotation_90"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="@string/rotation_90"/>
+
+            <RadioButton
+                android:id="@+id/rotation_180"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rotation_180"/>
+
+            <RadioButton
+                android:id="@+id/rotation_270"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rotation_270"/>
+
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/rotation_btn_restore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radiogroup"
+            android:layout_centerHorizontal="true"
+            android:text="@string/btn_restore"/>
+
+
+        <com.mcgs.srx.Util.JustifyTextView
+            android:id="@+id/rotation_summry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/rotation_btn_restore"
+            android:text="@string/rotation_summry"
+            />
+    </RelativeLayout>
+
+</ScrollView>
+

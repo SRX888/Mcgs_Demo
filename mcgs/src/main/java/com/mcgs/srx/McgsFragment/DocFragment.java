@@ -65,27 +65,7 @@ public class DocFragment extends Fragment {
         mTextView = (JustifyTextView) view.findViewById(R.id.tv_title);
 
         postion = getArguments().getInt(TAG);
-
-        switch (postion) {
-            case 0:
-                mHandler.sendEmptyMessage(0);
-                break;
-            case 1:
-                mHandler.sendEmptyMessage(1);
-                break;
-            case 2:
-                mHandler.sendEmptyMessage(2);
-                break;
-            case 3:
-                mHandler.sendEmptyMessage(3);
-                break;
-            case 4:
-                mHandler.sendEmptyMessage(4);
-                break;
-            default:
-                break;
-        }
-
+        mHandler.sendEmptyMessage(postion);
         return view;
     }
 

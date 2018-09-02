@@ -108,7 +108,7 @@ public class ApplicationFragment extends Fragment {
                             .beginTransaction();
                     fragmentTransaction.replace(R.id.fragment_container_app, mAppFragment);
                     Bundle bundle = new Bundle();
-                    bundle.putString(mAppFragment.TAG, strs[position]);
+                    bundle.putInt(mAppFragment.TAG, position);
                     mAppFragment.setArguments(bundle);
                     fragmentTransaction.commit();
                 }

@@ -1,6 +1,7 @@
 package com.mcgs.srx.McgsFragment;
 
 import android.app.AlertDialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -58,6 +59,7 @@ public class AppFragment extends Fragment implements View.OnClickListener, Radio
     //app calibrate  start
     private Button mCalibrateBtn;
     private static final String KEY_PACKAGENAME = "cn.com.srx.tscalibration";
+    private static final String KEY_PACKAGENAME_ACTIVITY = "cn.com.srx.tscalibration.MainActivity";
     //app calibrate  end
 
     private Handler mHandler = new Handler() {
@@ -170,13 +172,23 @@ public class AppFragment extends Fragment implements View.OnClickListener, Radio
     }
 
     private void startAPP(String packagename) {
-        PackageManager packageManager = getContext().getPackageManager();
+//        PackageManager packageManager = getContext().getPackageManager();
+//        Intent intent = new Intent();
+//        intent = packageManager.getLaunchIntentForPackage(packagename);
+//        if (intent == null) {
+//            Toast.makeText(getContext(), R.string.app_start_error, Toast.LENGTH_LONG).show();
+//        } else {
+//            startActivity(intent);
+//        }
+
         Intent intent = new Intent();
-        intent = packageManager.getLaunchIntentForPackage(packagename);
-        if (intent == null) {
-            Toast.makeText(getContext(), R.string.app_start_error, Toast.LENGTH_LONG).show();
-        } else {
+        ComponentName cn = new ComponentName(KEY_PACKAGENAME,KEY_PACKAGENAME_ACTIVITY);
+        intent.setComponent(cn);
+        intent.setAction("android.intent.action.MAIN");
+        try {
             startActivity(intent);
+        } catch (Exception e) {
+            Toast.makeText(getContext(), R.string.app_start_error,Toast.LENGTH_SHORT).show();
         }
 
 

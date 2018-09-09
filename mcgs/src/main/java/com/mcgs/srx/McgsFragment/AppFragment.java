@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -18,6 +19,7 @@ import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import com.mcgs.srx.R;
 import com.mcgs.srx.Util.JustifyTextView;
@@ -52,6 +54,12 @@ public class AppFragment extends Fragment implements View.OnClickListener, Radio
     private Button mBtnEthernetSetings;
     //app ethernet end
 
+
+    //app calibrate  start
+    private Button mCalibrateBtn;
+    private static final String KEY_PACKAGENAME = "cn.com.srx.tscalibration";
+    //app calibrate  end
+
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -68,8 +76,7 @@ public class AppFragment extends Fragment implements View.OnClickListener, Radio
                     initRotationView();
                     break;
                 case 3:
-                    mTextView = (JustifyTextView) view.findViewById(R.id.tv_title);
-                    mTextView.setText(R.string.tp_calibration_documentation);
+                    initClibrateView();
                     break;
                 case 4:
                     mTextView = (JustifyTextView) view.findViewById(R.id.tv_title);
@@ -82,6 +89,12 @@ public class AppFragment extends Fragment implements View.OnClickListener, Radio
             }
         }
     };
+
+
+    private void initClibrateView() {
+        mCalibrateBtn = (Button) view.findViewById(R.id.btn_calibtate);
+        mCalibrateBtn.setOnClickListener(this);
+    }
 
     private void initRotationView() {
         mRadioRotation_0 = (RadioButton) view.findViewById(R.id.rotation_0);
@@ -118,11 +131,11 @@ public class AppFragment extends Fragment implements View.OnClickListener, Radio
             public void onCheckedChanged(CompoundButton button, boolean b) {
                 if (b) {
                     //TODO
-                    mUtils.setBooleanPreference(KEY_EHTERNET_STATUS,b);
+                    mUtils.setBooleanPreference(KEY_EHTERNET_STATUS, b);
                     mBtnEthernetSetings.setEnabled(b);
                 } else {
                     //TODO
-                    mUtils.setBooleanPreference(KEY_EHTERNET_STATUS,b);
+                    mUtils.setBooleanPreference(KEY_EHTERNET_STATUS, b);
                     mBtnEthernetSetings.setEnabled(b);
                 }
 
@@ -148,7 +161,24 @@ public class AppFragment extends Fragment implements View.OnClickListener, Radio
                 startActivity(intent);
                 break;
 
+            case R.id.btn_calibtate:
+                startAPP(KEY_PACKAGENAME);
+                break;
+
         }
+
+    }
+
+    private void startAPP(String packagename) {
+        PackageManager packageManager = getContext().getPackageManager();
+        Intent intent = new Intent();
+        intent = packageManager.getLaunchIntentForPackage(packagename);
+        if (intent == null) {
+            Toast.makeText(getContext(), R.string.app_start_error, Toast.LENGTH_LONG).show();
+        } else {
+            startActivity(intent);
+        }
+
 
     }
 
@@ -201,7 +231,7 @@ public class AppFragment extends Fragment implements View.OnClickListener, Radio
                 view = mUtils.getFragmentView(mContext, R.layout.app_rotation_fragment);
                 break;
             case 3:
-                view = mUtils.getFragmentView(mContext, R.layout.appfragment);
+                view = mUtils.getFragmentView(mContext, R.layout.app_calibrate_fragment);
                 break;
             case 4:
                 view = mUtils.getFragmentView(mContext, R.layout.appfragment);

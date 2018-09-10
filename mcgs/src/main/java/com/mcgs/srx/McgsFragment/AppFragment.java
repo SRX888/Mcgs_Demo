@@ -164,14 +164,14 @@ public class AppFragment extends Fragment implements View.OnClickListener, Radio
                 break;
 
             case R.id.btn_calibtate:
-                startAPP(KEY_PACKAGENAME);
+                startAPP(KEY_PACKAGENAME,KEY_PACKAGENAME_ACTIVITY);
                 break;
 
         }
 
     }
 
-    private void startAPP(String packagename) {
+    private void startAPP(String packagename,String activity) {
 //        PackageManager packageManager = getContext().getPackageManager();
 //        Intent intent = new Intent();
 //        intent = packageManager.getLaunchIntentForPackage(packagename);
@@ -182,7 +182,7 @@ public class AppFragment extends Fragment implements View.OnClickListener, Radio
 //        }
 
         Intent intent = new Intent();
-        ComponentName cn = new ComponentName(KEY_PACKAGENAME,KEY_PACKAGENAME_ACTIVITY);
+        ComponentName cn = new ComponentName(packagename,activity);
         intent.setComponent(cn);
         intent.setAction("android.intent.action.MAIN");
         try {

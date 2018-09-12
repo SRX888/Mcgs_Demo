@@ -7,78 +7,37 @@
             android:fadingEdge="vertical"
             android:scrollbars="vertical">
 
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
 
-
-        <TextView
-            android:id="@+id/rotation_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:text="@string/app_rotation_title"
-            android:textSize="45dp"/>
-
-        <RadioGroup
-            android:id="@+id/radiogroup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/rotation_title"
-            android:layout_marginLeft="25dp"
-            android:orientation="vertical">
-
-
-            <RadioButton
-                android:id="@+id/rotation_0"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:checked="true"
-                android:text="@string/rotation_default"/>
-
-            <RadioButton
-                android:id="@+id/rotation_90"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:text="@string/rotation_90"/>
-
-            <RadioButton
-                android:id="@+id/rotation_180"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/rotation_180"/>
-
-            <RadioButton
-                android:id="@+id/rotation_270"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/rotation_270"/>
-
-
-        </RadioGroup>
 
         <Button
-            android:id="@+id/rotation_btn_restore"
+            android:id="@+id/btn_rotation"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/radiogroup"
-            android:layout_centerHorizontal="true"
-            android:text="@string/btn_restore"/>
+            android:layout_height="200dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:textSize="20dp"
+            android:text="@string/calibrate_settings_title"/>
+
 
 
         <com.mcgs.srx.Util.JustifyTextView
-            android:id="@+id/rotation_summry"
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_below="@+id/rotation_btn_restore"
-            android:text="@string/rotation_summry"
+            android:layout_below="@+id/btn_rotation"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="80dp"
+            android:lineSpacingExtra="5dp"
+            android:text="@string/calibrate_settings_summry"
             />
+
     </RelativeLayout>
 
 </ScrollView>
-

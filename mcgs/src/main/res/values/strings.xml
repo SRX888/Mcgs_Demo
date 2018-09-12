@@ -147,6 +147,8 @@
     <string name="calibrate_settings_title">"点击开始进行触屏校准"</string>
     <string name="app_start_error">"未检测到触屏校准程序"</string>
 
+    <string name="ethernet_settings_btn">"点击开始进行以太网配置"</string>
+
 
     <string name="calibrate_settings_summry">"(1)首先生成校准用的参数，可以适用tslib生成校准参数，也可以使用校准app生成；使用校准app进行校准对使用者要求比较低，使用者可以不用学习复杂的命令；从用户的角度考虑使用app方式\n"
             "\n"

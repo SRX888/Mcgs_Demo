@@ -1,11 +1,8 @@
 package com.mcgs.srx.McgsFragment;
 
-import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -16,18 +13,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.mcgs.srx.R;
 import com.mcgs.srx.Util.JustifyTextView;
 import com.mcgs.srx.Util.Utils;
-import com.mcgs.srx.ethernet.EthernetSetting;
 
-public class AppFragment extends Fragment implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
+public class AppFragment extends Fragment implements View.OnClickListener {
 
     public static final String TAG = "AppFragment";
     private int position;
@@ -39,20 +31,17 @@ public class AppFragment extends Fragment implements View.OnClickListener, Radio
 
 
     //app rotation statrt
-    private static final String KEY_ROTATION = "key_rotation";
-    private RadioButton mRadioRotation_0;
-    private RadioButton mRadioRotation_90;
-    private RadioButton mRadioRotation_180;
-    private RadioButton mRadioRotation_270;
-    private RadioGroup mRadioGroupRotation;
+    private static final String KEY_PACKAGENAME_ROTATION = "cn.com.srx.mcgsconfig";
+    private static final String KEY_PACKAGENAME_ACTIVITY_ROTATION = "cn.com.srx.rorationset.RotationSet";
     private Button mRotationRestore;
     //app rotation end
 
 
     //app ethernet start
     private static final String KEY_EHTERNET_STATUS = "key_ethernet_status";
-    private Switch mSwitchEthernet;
     private Button mBtnEthernetSetings;
+    private static final String KEY_PACKAGENAME_ETHERNET = "cn.com.srx.mcgsconfig";
+    private static final String KEY_PACKAGENAME_ACTIVITY_THERNET = "cn.com.srx.ethernetset.EthernetSettings";
     //app ethernet end
 
 
@@ -99,68 +88,24 @@ public class AppFragment extends Fragment implements View.OnClickListener, Radio
     }
 
     private void initRotationView() {
-        mRadioRotation_0 = (RadioButton) view.findViewById(R.id.rotation_0);
-        mRadioRotation_90 = (RadioButton) view.findViewById(R.id.rotation_90);
-        mRadioRotation_180 = (RadioButton) view.findViewById(R.id.rotation_180);
-        mRadioRotation_270 = (RadioButton) view.findViewById(R.id.rotation_270);
-        mRadioGroupRotation = (RadioGroup) view.findViewById(R.id.radiogroup);
-        mRotationRestore = (Button) view.findViewById(R.id.rotation_btn_restore);
+        mRotationRestore = (Button) view.findViewById(R.id.btn_rotation);
         mRotationRestore.setOnClickListener(this);
-        mRadioGroupRotation.setOnCheckedChangeListener(this);
-        int value = mUtils.getIntPreference(KEY_ROTATION, 0);
-        switch (value) {
-            case 0:
-                mRadioRotation_0.setChecked(true);
-                break;
-            case 1:
-                mRadioRotation_90.setChecked(true);
-                break;
-            case 2:
-                mRadioRotation_180.setChecked(true);
-                break;
-            case 3:
-                mRadioRotation_270.setChecked(true);
-                break;
-        }
-
     }
 
 
     private void initEthernetView() {
-        mSwitchEthernet = (Switch) view.findViewById(R.id.eth_switch_on);
-        mSwitchEthernet.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton button, boolean b) {
-                if (b) {
-                    //TODO
-                    mUtils.setBooleanPreference(KEY_EHTERNET_STATUS, b);
-                    mBtnEthernetSetings.setEnabled(b);
-                } else {
-                    //TODO
-                    mUtils.setBooleanPreference(KEY_EHTERNET_STATUS, b);
-                    mBtnEthernetSetings.setEnabled(b);
-                }
-
-            }
-        });
-        mBtnEthernetSetings = (Button) view.findViewById(R.id.eth_setting);
+        mBtnEthernetSetings = (Button) view.findViewById(R.id.btn_ethernet);
         mBtnEthernetSetings.setOnClickListener(this);
-        boolean isEthernetOn = mUtils.getBooleanPreference(KEY_EHTERNET_STATUS, false);
-        mBtnEthernetSetings.setEnabled(isEthernetOn);
-        mSwitchEthernet.setChecked(isEthernetOn);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.rotation_btn_restore:
-                showRotationDialogRestore();
+            case R.id.btn_rotation:
+                startAPP(KEY_PACKAGENAME_ROTATION,KEY_PACKAGENAME_ACTIVITY_ROTATION);
                 break;
-            case R.id.eth_setting:
-                Log.i("srx", "onClick:eth_settingeth_setting ");
-                Intent intent = new Intent();
-                intent.setClass(mContext, EthernetSetting.class);
-                startActivity(intent);
+            case R.id.btn_ethernet:
+                startAPP(KEY_PACKAGENAME_ETHERNET,KEY_PACKAGENAME_ACTIVITY_THERNET);
                 break;
 
             case R.id.btn_calibtate:
@@ -172,14 +117,6 @@ public class AppFragment extends Fragment implements View.OnClickListener, Radio
     }
 
     private void startAPP(String packagename,String activity) {
-//        PackageManager packageManager = getContext().getPackageManager();
-//        Intent intent = new Intent();
-//        intent = packageManager.getLaunchIntentForPackage(packagename);
-//        if (intent == null) {
-//            Toast.makeText(getContext(), R.string.app_start_error, Toast.LENGTH_LONG).show();
-//        } else {
-//            startActivity(intent);
-//        }
 
         Intent intent = new Intent();
         ComponentName cn = new ComponentName(packagename,activity);
@@ -189,30 +126,12 @@ public class AppFragment extends Fragment implements View.OnClickListener, Radio
             startActivity(intent);
         } catch (Exception e) {
             Toast.makeText(getContext(), R.string.app_start_error,Toast.LENGTH_SHORT).show();
+            Log.i("srx", "startAPP: E:"+e);
         }
 
 
     }
 
-    @Override
-    public void onCheckedChanged(RadioGroup group, int checkedId) {
-        switch (checkedId) {
-            case R.id.rotation_0:
-                mUtils.setIntPreference(KEY_ROTATION, 0);
-                break;
-            case R.id.rotation_90:
-                mUtils.setIntPreference(KEY_ROTATION, 1);
-                break;
-            case R.id.rotation_180:
-                mUtils.setIntPreference(KEY_ROTATION, 2);
-                break;
-            case R.id.rotation_270:
-                mUtils.setIntPreference(KEY_ROTATION, 3);
-                break;
-
-        }
-
-    }
 
 
     @Override
@@ -260,23 +179,5 @@ public class AppFragment extends Fragment implements View.OnClickListener, Radio
         super.onDestroy();
         mHandler.removeCallbacksAndMessages(null);
     }
-
-
-    private void showRotationDialogRestore() {
-        new AlertDialog.Builder(getActivity())
-                .setTitle(R.string.btn_restore)
-                .setMessage(R.string.btn_restore_message)
-                .setPositiveButton(android.R.string.ok,
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog,
-                                                int which) {
-                                mUtils.setIntPreference(KEY_ROTATION, 0);
-                                mRadioRotation_0.setChecked(true);
-
-                            }
-                        }).setNegativeButton(android.R.string.cancel, null)
-                .create().show();
-    }
-
 
 }

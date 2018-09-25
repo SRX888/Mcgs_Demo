@@ -27,7 +27,7 @@ public class DocFragment extends Fragment {
             super.handleMessage(msg);
             switch (msg.what) {
                 case 0:
-                    mTextView.setText(R.string.ethernet_documentation);
+                    mTextView.setText(R.string.system_documentation);
                     break;
                 case 1:
                     mTextView.setText(R.string.serialport_documentation);

@@ -30,7 +30,7 @@ public class DocFragment extends Fragment {
                     mTextView.setText(R.string.system_documentation);
                     break;
                 case 1:
-                    mTextView.setText(R.string.serialport_documentation);
+                    mTextView.setText(R.string.developer_guide_documentation);
                     break;
                 case 2:
                     mTextView.setText(R.string.rotation_documentation);

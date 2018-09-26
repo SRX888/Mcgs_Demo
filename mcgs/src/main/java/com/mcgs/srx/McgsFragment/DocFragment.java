@@ -39,7 +39,7 @@ public class DocFragment extends Fragment {
                     mTextView.setText(R.string.tp_calibration_documentation);
                     break;
                 case 4:
-                    mTextView.setText(R.string.usb_set_documentation);
+                    mTextView.setText(R.string.system_common_modify);
                     break;
                 default:
                     mTextView.setText("default");

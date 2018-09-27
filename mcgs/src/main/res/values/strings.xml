@@ -928,7 +928,19 @@
             "\n"
             "(2)生成校准参数后，以后驱动每次接收到触摸事件就会使用校准参数进行校准"</string>
 
+    <string name="mcgs_usb_mode">"USB模式配置"</string>
+    <string name="mcgs_usb_mode_default">0</string>
+    <string name="mcgs_usb_mode_set">设置usb当前模式</string>
 
+
+    <string name="mcgs_lcd_set">"背光设置"</string>
+    <string name="mcgs_lcd_set_status">"LCD显示背光"</string>
+    <string name="mcgs_lcd_set_on">"LCD显示背光打开"</string>
+    <string name="mcgs_lcd_set_off">"LCD显示背光关闭"</string>
+    <string name="mcgs_lcd_set_brightness">"设置背光亮度[1:100]"</string>
+
+    <string name="mcgs_bee_set">"蜂鸣控制"</string>
+    <string name="mcgs_bee_set_time">"设置蜂鸣控制时间(ms)"</string>
 
 
 </resources>

@@ -107,7 +107,7 @@ public class SettingFragment extends Fragment {
                             .beginTransaction();
                     fragmentTransaction.replace(R.id.fragment_container_set, mSetFragment);
                     Bundle bundle = new Bundle();
-                    bundle.putString(SetFragment.TAG, strs[position]);
+                    bundle.putInt(mSetFragment.TAG, position);
                     mSetFragment.setArguments(bundle);
                     fragmentTransaction.commit();
                 }

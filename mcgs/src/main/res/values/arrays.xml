@@ -26,4 +26,17 @@
 
     </string-array>
 
+
+    <string-array name="usb_mode">
+        <item> USB OTG 主机模式</item>
+        <item> USB OTG 从机模式</item>
+        <item> USB OTG 无效模式</item>
+    </string-array>
+    <string-array name="usb_mode_value">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+
 </resources>

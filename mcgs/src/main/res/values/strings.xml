@@ -942,5 +942,8 @@
     <string name="mcgs_bee_set">"蜂鸣控制"</string>
     <string name="mcgs_bee_set_time">"设置蜂鸣控制时间(ms)"</string>
 
+    <string name="mcgs_rtc_set">"RTC 配置"</string>
+    <string name="mcgs_rtc_set_time">"设置RTC时间"</string>
+
 
 </resources>

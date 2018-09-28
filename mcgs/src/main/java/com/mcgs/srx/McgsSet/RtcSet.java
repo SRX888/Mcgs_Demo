@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mcgs.srx.R;
+import com.mcgs.srx.Util.JniUtil;
 
 public class RtcSet extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceClickListener, View.OnClickListener  {
     private TextView title;
@@ -28,6 +29,7 @@ public class RtcSet extends PreferenceActivity implements SharedPreferences.OnSh
     private Preference mUsbRestore;
     private static final String KEY_USB_RESTORE = "key_restore";
     private static final String KEY_RTC_SET_TIME = "key_rtc_set";
+    private JniUtil mJniUtil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +45,14 @@ public class RtcSet extends PreferenceActivity implements SharedPreferences.OnSh
         //  mEditTextbrightness.getEditText().addTextChangedListener(prefWatcher);
         mUsbRestore = (Preference) findPreference(KEY_USB_RESTORE);
         mUsbRestore.setOnPreferenceClickListener(this);
+
+        mJniUtil = JniUtil.getInstance();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        mEditTextRtc.setSummary(mEditTextRtc.getSharedPreferences().getString(KEY_RTC_SET_TIME, "0"));
+        mEditTextRtc.setSummary(mEditTextRtc.getSharedPreferences().getString(KEY_RTC_SET_TIME, getString(R.string.mcgs_lct_set_default)));
 
         getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
     }
@@ -64,11 +68,12 @@ public class RtcSet extends PreferenceActivity implements SharedPreferences.OnSh
         String value = null;
         if(key.equals(KEY_RTC_SET_TIME)){
             Log.d("settings", " key:" + key);
-            value = mEditTextRtc.getSharedPreferences().getString(KEY_RTC_SET_TIME, "0");
+            value = mEditTextRtc.getSharedPreferences().getString(KEY_RTC_SET_TIME, getString(R.string.mcgs_lct_set_default));
             mEditTextRtc.setSummary(value);
 
             //TODO
-
+            int time= Integer.valueOf(value);
+            mJniUtil.setRtcTime(time);
         }
 
 
@@ -123,9 +128,9 @@ public class RtcSet extends PreferenceActivity implements SharedPreferences.OnSh
                             public void onClick(DialogInterface dialog,
                                                 int which) {
 
-                                mEditTextRtc.getEditor().putString(KEY_RTC_SET_TIME, "").commit();
-                                mEditTextRtc.setSummary("");
-                                mEditTextRtc.setText("");
+                                mEditTextRtc.getEditor().putString(KEY_RTC_SET_TIME, getString(R.string.mcgs_lct_set_default)).commit();
+                                mEditTextRtc.setSummary(getString(R.string.mcgs_lct_set_default));
+                                mEditTextRtc.setText(getString(R.string.mcgs_lct_set_default));
 
                             }
                         }).setNegativeButton(android.R.string.cancel, null)

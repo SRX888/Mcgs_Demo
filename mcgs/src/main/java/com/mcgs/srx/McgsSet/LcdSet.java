@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mcgs.srx.R;
+import com.mcgs.srx.Util.JniUtil;
 
 public class LcdSet extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceClickListener, OnClickListener {
     private TextView title;
@@ -31,6 +32,8 @@ public class LcdSet extends PreferenceActivity implements SharedPreferences.OnSh
     private static final String KEY_USB_RESTORE = "key_restore";
     private static final String KEY_LCD_SET = "key_lcd_set";
     private static final String KEY_LCD_SET_BRIGHTNESS = "key_lcd_brightness_set";
+
+    private JniUtil mJniUtil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +50,14 @@ public class LcdSet extends PreferenceActivity implements SharedPreferences.OnSh
       //  mEditTextbrightness.getEditText().addTextChangedListener(prefWatcher);
         mUsbRestore = (Preference) findPreference(KEY_USB_RESTORE);
         mUsbRestore.setOnPreferenceClickListener(this);
+
+        mJniUtil = JniUtil.getInstance();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        mEditTextbrightness.setSummary(mEditTextbrightness.getSharedPreferences().getString(KEY_LCD_SET_BRIGHTNESS, "50"));
+        mEditTextbrightness.setSummary(mEditTextbrightness.getSharedPreferences().getString(KEY_LCD_SET_BRIGHTNESS, getString(R.string.mcgs_lct_set_default)));
         mEditTextbrightness.setEnabled(mLcdSet.isChecked());
 
         getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
@@ -78,11 +83,12 @@ public class LcdSet extends PreferenceActivity implements SharedPreferences.OnSh
 
         }else if(key.equals(KEY_LCD_SET_BRIGHTNESS)){
             Log.d("settings", " key:" + key);
-            value = mEditTextbrightness.getSharedPreferences().getString(KEY_LCD_SET_BRIGHTNESS, "50");
+            value = mEditTextbrightness.getSharedPreferences().getString(KEY_LCD_SET_BRIGHTNESS, getString(R.string.mcgs_lct_set_default));
             mEditTextbrightness.setSummary(value);
 
             //TODO
-
+            int brightness = Integer.valueOf(value);
+            mJniUtil.setBacklightbrightness(brightness);
         }
 
 
@@ -137,9 +143,9 @@ public class LcdSet extends PreferenceActivity implements SharedPreferences.OnSh
                             public void onClick(DialogInterface dialog,
                                                 int which) {
 
-                                mEditTextbrightness.getEditor().putString(KEY_LCD_SET_BRIGHTNESS, "50").commit();
-                                mEditTextbrightness.setSummary("50");
-                                mEditTextbrightness.setText("");
+                                boolean commit = mEditTextbrightness.getEditor().putString(KEY_LCD_SET_BRIGHTNESS, getString(R.string.mcgs_lct_set_default)).commit();
+                                mEditTextbrightness.setSummary(getString(R.string.mcgs_lct_set_default));
+                                mEditTextbrightness.setText(getString(R.string.mcgs_lct_set_default));
                                 mEditTextbrightness.setEnabled(false);
                                 mLcdSet.setChecked(false);
                             }

@@ -946,4 +946,12 @@
     <string name="mcgs_rtc_set_time">"设置RTC时间"</string>
 
 
+
+    <string name="mcgs_lct_set_default">"50"</string>
+    <string name="mcgs_rtc_set_default">"0"</string>
+    <string name="mcgs_bee_set_default">"10"</string>
+
+
+
+
 </resources>

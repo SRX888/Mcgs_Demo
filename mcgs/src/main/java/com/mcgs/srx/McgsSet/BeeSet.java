@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mcgs.srx.R;
+import com.mcgs.srx.Util.JniUtil;
 
 public class BeeSet extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceClickListener, View.OnClickListener {
     private TextView title;
@@ -27,6 +28,8 @@ public class BeeSet extends PreferenceActivity implements SharedPreferences.OnSh
     private Preference mUsbRestore;
     private static final String KEY_USB_RESTORE = "key_restore";
     private static final String KEY_BEE_SET_TIME = "key_lcd_bee_set";
+
+    private JniUtil mJniUtil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +45,13 @@ public class BeeSet extends PreferenceActivity implements SharedPreferences.OnSh
         //  mEditTextbrightness.getEditText().addTextChangedListener(prefWatcher);
         mUsbRestore = (Preference) findPreference(KEY_USB_RESTORE);
         mUsbRestore.setOnPreferenceClickListener(this);
+        mJniUtil = JniUtil.getInstance();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        mEditTextBee.setSummary(mEditTextBee.getSharedPreferences().getString(KEY_BEE_SET_TIME, "0"));
+        mEditTextBee.setSummary(mEditTextBee.getSharedPreferences().getString(KEY_BEE_SET_TIME, getString(R.string.mcgs_bee_set_default)));
 
         getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
     }
@@ -63,11 +67,12 @@ public class BeeSet extends PreferenceActivity implements SharedPreferences.OnSh
         String value = null;
      if(key.equals(KEY_BEE_SET_TIME)){
             Log.d("settings", " key:" + key);
-            value = mEditTextBee.getSharedPreferences().getString(KEY_BEE_SET_TIME, "0");
+            value = mEditTextBee.getSharedPreferences().getString(KEY_BEE_SET_TIME, getString(R.string.mcgs_bee_set_default));
             mEditTextBee.setSummary(value);
 
             //TODO
-
+         int time = Integer.valueOf(value);
+         mJniUtil.setBeeTime(time);
         }
 
 
@@ -122,9 +127,9 @@ public class BeeSet extends PreferenceActivity implements SharedPreferences.OnSh
                             public void onClick(DialogInterface dialog,
                                                 int which) {
 
-                                mEditTextBee.getEditor().putString(KEY_BEE_SET_TIME, "").commit();
-                                mEditTextBee.setSummary("");
-                                mEditTextBee.setText("");
+                                mEditTextBee.getEditor().putString(KEY_BEE_SET_TIME, getString(R.string.mcgs_bee_set_default)).commit();
+                                mEditTextBee.setSummary(getString(R.string.mcgs_bee_set_default));
+                                mEditTextBee.setText(getString(R.string.mcgs_bee_set_default));
 
                             }
                         }).setNegativeButton(android.R.string.cancel, null)

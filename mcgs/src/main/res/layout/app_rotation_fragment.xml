@@ -22,7 +22,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:textSize="20dp"
-            android:text="@string/calibrate_settings_title"/>
+            android:text="@string/rotation_settings_title"/>
 
 
 
@@ -35,7 +35,7 @@
             android:layout_marginRight="25dp"
             android:layout_marginTop="80dp"
             android:lineSpacingExtra="5dp"
-            android:text="@string/calibrate_settings_summry"
+            android:text="@string/rotation_summry"
             />
 
     </RelativeLayout>

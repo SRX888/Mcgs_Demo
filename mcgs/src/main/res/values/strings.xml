@@ -897,6 +897,7 @@
     <string name="rotation_180">屏幕旋转180度</string>
     <string name="rotation_270">屏幕旋转270度</string>
     <string name="btn_restore">恢复出厂默认配置</string>
+    <string name="rotation_settings_title">"点击开始进行屏幕旋转设置"</string>
     <string name="btn_restore_message">是否恢复出厂默认配置?</string>
     <string name="rotation_summry">屏幕旋转应用说明：由于该设备没有Sensors没有自动旋转的功能，该功能实现的设备可以实现0,90,180,270四个角度的旋转。恢复出厂默认配置，还原出厂时的默认角度</string>
     <string name="ethernet_on">以太网</string>
@@ -922,6 +923,7 @@
 
 
     <string name="ethernet_settings_btn">"点击开始进行以太网配置"</string>
+    <string name="ethernet_settings_summry">"以太网的功能是允许设备提供硬件接口通过插入网线的形式访问互联网的功能。接入网线之后，设备可以动态的获取IP，DNS，Gateway等一系列网络属性，手动配置设备的网络属性，使用静态配置参数，通过配置eth0网口的IP，DNS，Gateway三个参数，实现上网功能。"</string>
 
 
     <string name="calibrate_settings_summry">"(1)首先生成校准用的参数，可以适用tslib生成校准参数，也可以使用校准app生成；使用校准app进行校准对使用者要求比较低，使用者可以不用学习复杂的命令；从用户的角度考虑使用app方式\n"

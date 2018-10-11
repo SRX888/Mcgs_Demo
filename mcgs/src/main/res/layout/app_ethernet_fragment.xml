@@ -35,7 +35,7 @@
             android:layout_marginRight="25dp"
             android:layout_marginTop="80dp"
             android:lineSpacingExtra="5dp"
-            android:text="@string/calibrate_settings_summry"
+            android:text="@string/ethernet_settings_summry"
             />
 
     </RelativeLayout>

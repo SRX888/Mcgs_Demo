@@ -51,6 +51,13 @@ public class AppFragment extends Fragment implements View.OnClickListener {
     private static final String KEY_PACKAGENAME_ACTIVITY = "cn.com.srx.tscalibration.MainActivity";
     //app calibrate  end
 
+
+    //app btn_serilport start
+    private Button mBtnbtnserilport;
+    private static final String KEY_PACKAGENAME_SERILPORT = "android.serialport.sample";
+    private static final String KEY_PACKAGENAME_ACTIVITY_SERILPORT = "android.serialport.sample.MainMenu";
+    //app serialport end
+
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -60,8 +67,7 @@ public class AppFragment extends Fragment implements View.OnClickListener {
                     initEthernetView();
                     break;
                 case 1:
-                    mTextView = (JustifyTextView) view.findViewById(R.id.tv_title);
-                    mTextView.setText(R.string.serialport_documentation);
+                    initSerialPortView();
                     break;
                 case 2:
                     initRotationView();
@@ -98,6 +104,11 @@ public class AppFragment extends Fragment implements View.OnClickListener {
         mBtnEthernetSetings.setOnClickListener(this);
     }
 
+    private void initSerialPortView(){
+        mBtnbtnserilport = (Button)view.findViewById(R.id.btn_serilport);
+        mBtnbtnserilport.setOnClickListener(this);
+    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -110,6 +121,9 @@ public class AppFragment extends Fragment implements View.OnClickListener {
 
             case R.id.btn_calibtate:
                 startAPP(KEY_PACKAGENAME,KEY_PACKAGENAME_ACTIVITY);
+                break;
+            case R.id.btn_serilport:
+                startAPP(KEY_PACKAGENAME_SERILPORT,KEY_PACKAGENAME_ACTIVITY_SERILPORT);
                 break;
 
         }
@@ -156,7 +170,7 @@ public class AppFragment extends Fragment implements View.OnClickListener {
                 view = mUtils.getFragmentView(mContext, R.layout.app_ethernet_fragment);
                 break;
             case 1:
-                view = mUtils.getFragmentView(mContext, R.layout.appfragment);
+                view = mUtils.getFragmentView(mContext, R.layout.app_serialport_fragment);
                 break;
             case 2:
                 view = mUtils.getFragmentView(mContext, R.layout.app_rotation_fragment);

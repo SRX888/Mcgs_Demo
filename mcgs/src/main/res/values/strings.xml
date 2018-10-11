@@ -925,7 +925,8 @@
     <string name="ethernet_settings_btn">"点击开始进行以太网配置"</string>
     <string name="ethernet_settings_summry">"以太网的功能是允许设备提供硬件接口通过插入网线的形式访问互联网的功能。接入网线之后，设备可以动态的获取IP，DNS，Gateway等一系列网络属性，手动配置设备的网络属性，使用静态配置参数，通过配置eth0网口的IP，DNS，Gateway三个参数，实现上网功能。"</string>
 
-
+    <string name="serialport_settings_btn">"点击开始进行串口配置"</string>
+    <string name="serialport_settings_summry">"串口通信"</string>
     <string name="calibrate_settings_summry">"(1)首先生成校准用的参数，可以适用tslib生成校准参数，也可以使用校准app生成；使用校准app进行校准对使用者要求比较低，使用者可以不用学习复杂的命令；从用户的角度考虑使用app方式\n"
             "\n"
             "(2)生成校准参数后，以后驱动每次接收到触摸事件就会使用校准参数进行校准"</string>

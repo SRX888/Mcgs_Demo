@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Mcgs</string>
+    <string name="app_name">Mcgs-demo</string>
     <string name="title_docment">文档</string>
     <string name="title_application">应用</string>
     <string name="title_settings">设置</string>

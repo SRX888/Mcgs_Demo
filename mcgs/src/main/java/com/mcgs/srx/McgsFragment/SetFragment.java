@@ -19,65 +19,40 @@ import com.mcgs.srx.R;
 import com.mcgs.srx.Util.JustifyTextView;
 import com.mcgs.srx.Util.Utils;
 
-public class SetFragment extends Fragment implements View.OnClickListener {
+public class SetFragment extends Fragment {
 
     public static final String TAG = "SetFragment";
     private int position;
     private View view;
 
 
-    //usb Set start
-    private Button btnUsbmode;
-    private static final String KEY_PACKAGENAME_USBMODE = "com.mcgs.srx";
-    private static final String KEY_PACKAGENAME_ACTIVITY_USBMODE = "com.mcgs.srx.McgsSet.UsbSetting";
-    //usb Set end
-
-    //lcd set start
-    private Button btnLcdSet;
-    private static final String KEY_PACKAGENAME_LCD = "com.mcgs.srx";
-    private static final String KEY_PACKAGENAME_ACTIVITY_LCD = "com.mcgs.srx.McgsSet.LcdSet";
-    //lcd set end
-
-
-    //bee set start
-    private Button btnBeeSet;
-    private static final String KEY_PACKAGENAME_BEE = "com.mcgs.srx";
-    private static final String KEY_PACKAGENAME_ACTIVITY_BEE = "com.mcgs.srx.McgsSet.BeeSet";
-
-    //bee set end
-
-
-    //RTC set start
-    private Button btnRtcSet;
-    private static final String KEY_PACKAGENAME_RTC = "com.mcgs.srx";
-    private static final String KEY_PACKAGENAME_ACTIVITY_RTC = "com.mcgs.srx.McgsSet.RtcSet";
-
-    //RTC set end
-
-
     private Utils mUtils;
     private Context mContext;
     private JustifyTextView mTextView;
+
+
+    private JustifyTextView mDemoVersiontv;
+
+
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             switch (msg.what) {
                 case 0:
-                    initUsbModeView();
+                    //TODO
                     break;
                 case 1:
-                    initLcdSetView();
-                    break;
-                case 2:
-                    initBeeSetView();
-                    break;
-                case 3:
-                    initRtcSetView();
-                    break;
-                case 4:
+                    //TODO
+                    mDemoVersiontv = (JustifyTextView) view.findViewById(R.id.tv_demo_version);
+                    StringBuilder stringBuilder = new StringBuilder();
+                    StringBuilder version = stringBuilder.append(getStr(R.string.demo_version))
+                            .append(getStr(R.string.version_name));
+                    mDemoVersiontv.setText(version);
+
 
                     break;
+
                 default:
                     mTextView = (JustifyTextView) view.findViewById(R.id.tv_title);
                     mTextView.setText("default");
@@ -86,62 +61,6 @@ public class SetFragment extends Fragment implements View.OnClickListener {
         }
     };
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btn_usb_set:
-                startAPP(KEY_PACKAGENAME_USBMODE, KEY_PACKAGENAME_ACTIVITY_USBMODE);
-                break;
-            case R.id.btn_lcd_set:
-                startAPP(KEY_PACKAGENAME_LCD, KEY_PACKAGENAME_ACTIVITY_LCD);
-                break;
-            case R.id.btn_bee_set:
-                startAPP(KEY_PACKAGENAME_BEE, KEY_PACKAGENAME_ACTIVITY_BEE);
-                break;
-            case R.id.btn_rtc_set:
-                startAPP(KEY_PACKAGENAME_RTC, KEY_PACKAGENAME_ACTIVITY_RTC);
-                break;
-
-        }
-
-    }
-
-    private void startAPP(String packagename, String activity) {
-
-        Intent intent = new Intent();
-        ComponentName cn = new ComponentName(packagename, activity);
-        intent.setComponent(cn);
-        intent.setAction("android.intent.action.MAIN");
-        try {
-            startActivity(intent);
-        } catch (Exception e) {
-            Toast.makeText(getContext(), R.string.app_start_error, Toast.LENGTH_SHORT).show();
-            Log.i("srx", "startAPP: E:" + e);
-        }
-
-
-    }
-
-
-    private void initUsbModeView() {
-        btnUsbmode = (Button) view.findViewById(R.id.btn_usb_set);
-        btnUsbmode.setOnClickListener(this);
-    }
-
-    private void initLcdSetView() {
-        btnLcdSet = (Button) view.findViewById(R.id.btn_lcd_set);
-        btnLcdSet.setOnClickListener(this);
-    }
-
-    private void initBeeSetView() {
-        btnBeeSet = (Button) view.findViewById(R.id.btn_bee_set);
-        btnBeeSet.setOnClickListener(this);
-    }
-
-    private void initRtcSetView() {
-        btnRtcSet = (Button) view.findViewById(R.id.btn_rtc_set);
-        btnRtcSet.setOnClickListener(this);
-    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -150,6 +69,7 @@ public class SetFragment extends Fragment implements View.OnClickListener {
         mUtils = Utils.getInstance();
         mUtils.init(getContext());
         mTextView = new JustifyTextView(getContext());
+
     }
 
     @Override
@@ -162,19 +82,10 @@ public class SetFragment extends Fragment implements View.OnClickListener {
         Log.i("test", "onCreateView:==== " + position);
         switch (position) {
             case 0:
-                view = mUtils.getFragmentView(mContext, R.layout.set_usb_fragment);
+                view = mUtils.getFragmentView(mContext, R.layout.about_device_fragment);
                 break;
             case 1:
-                view = mUtils.getFragmentView(mContext, R.layout.set_lcd_fragment);
-                break;
-            case 2:
-                view = mUtils.getFragmentView(mContext, R.layout.set_bee_fragment);
-                break;
-            case 3:
-                view = mUtils.getFragmentView(mContext, R.layout.set_rtc_fragment);
-                break;
-            case 4:
-                view = mUtils.getFragmentView(mContext, R.layout.appfragment);
+                view = mUtils.getFragmentView(mContext, R.layout.about_mcgc_demo_fragment);
                 break;
             default:
                 view = mUtils.getFragmentView(mContext, R.layout.appfragment);
@@ -188,4 +99,9 @@ public class SetFragment extends Fragment implements View.OnClickListener {
         super.onDestroy();
         mHandler.removeCallbacksAndMessages(null);
     }
+
+    private String getStr(int id) {
+        return mContext.getApplicationContext().getString(id);
+    }
+
 }

@@ -23,10 +23,9 @@
 
 
     <string-array name="mcgs_set_value">
-        <item>"usb 主口从口设置"</item>
-        <item>"背光设置"</item>
-        <item>"蜂鸣设置"</item>
-        <item>"RTC设置"</item>
+        <item>"关于设备"</item>
+        <item>"关于mcgs-demo"</item>
+
 
     </string-array>
 

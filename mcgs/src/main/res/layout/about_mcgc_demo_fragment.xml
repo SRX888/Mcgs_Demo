@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:fadingEdge="vertical"
+    android:scrollbars="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <com.mcgs.srx.Util.JustifyTextView
+            android:id="@+id/tv_about_demo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginRight="25dp"
+            android:lineSpacingExtra="5dp"
+            android:text="@string/demo_name"
+            android:textSize="25dp" />
+
+
+        <com.mcgs.srx.Util.JustifyTextView
+            android:id="@+id/tv_demo_version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_about_demo"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="25dp"
+            android:lineSpacingExtra="5dp"
+            android:textSize="25dp"
+            android:text="@string/tv_demo_summry"
+            />
+
+
+        <com.mcgs.srx.Util.JustifyTextView
+            android:id="@+id/tv_demo_summry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_demo_version"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="25dp"
+            android:lineSpacingExtra="5dp"
+            android:textSize="25dp"
+            android:text="@string/tv_demo_summry"
+            />
+
+        <com.mcgs.srx.Util.JustifyTextView
+            android:id="@+id/tv_company_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_demo_summry"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="25dp"
+            android:lineSpacingExtra="5dp"
+            android:text="@string/tv_company_name"
+            android:textSize="25dp"
+
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_company_name"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="25dp"
+            android:src="@drawable/demo" />
+
+    </RelativeLayout>
+
+</ScrollView>

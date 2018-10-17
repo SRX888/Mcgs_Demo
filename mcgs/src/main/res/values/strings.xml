@@ -956,6 +956,16 @@
     <string name="mcgs_bee_set_default">"10"</string>
 
 
+    <string name="android_version">"Android 版本： Android 6.0"</string>
+    <string name="hardware_platform">"硬件平台： 全志 A64"</string>
+
+    <string name="demo_name">"Demo 名称：mcgs-demo"</string>
+    <string name="demo_version">"Demo版本号："</string>
+    <string name="tv_company_name">"公司：深圳昆仑通态科技有限责任公司"</string>
+    <string name="tv_demo_summry">"mcgs-demo描述"</string>
+
+
+
 
 
 </resources>

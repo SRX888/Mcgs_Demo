@@ -3,6 +3,7 @@
     <string name="title_docment">文档</string>
     <string name="title_application">应用</string>
     <string name="title_settings">设置</string>
+    <string name="version_name">mcgs_1.1.01</string>
 
 
     <string name="app_rotation_title">屏幕旋转</string>

@@ -7,8 +7,6 @@ android {
         applicationId "com.mcgs.srx"
         minSdkVersion 21
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         sourceSets.main {

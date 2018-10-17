@@ -75,6 +75,7 @@ public class LcdSet extends PreferenceActivity implements SharedPreferences.OnSh
         if (key.equals(KEY_LCD_SET)) {
             if(mLcdSet.isChecked()){
                 mEditTextbrightness.setEnabled(true);
+
             }else {
                 mEditTextbrightness.setEnabled(false);
             }

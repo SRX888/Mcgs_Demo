@@ -14,10 +14,19 @@
 #
 LOCAL_PATH := $(call my-dir)
 
+
+LOCAL_PATH := $(call my-dir)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libmcgs-hal
+LOCAL_SRC_FILES := libmcgs-hal.so
+include $(PREBUILT_SHARED_LIBRARY)
+
 include $(CLEAR_VARS)
 
 LOCAL_MODULE    := mcgs_jni
 LOCAL_SRC_FILES := mcgs_jni.c
+LOCAL_SHARED_LIBRARIES := libmcgs-hal
 LOCAL_LDLIBS += -llog
 
 include $(BUILD_SHARED_LIBRARY)

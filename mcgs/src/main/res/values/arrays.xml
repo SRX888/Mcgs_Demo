@@ -15,6 +15,10 @@
         <item>"串口"</item>
         <item>"屏幕旋转"</item>
         <item>"触摸校准"</item>
+        <item>"usb 主口从口设置"</item>
+        <item>"背光设置"</item>
+        <item>"蜂鸣设置"</item>
+        <item>"RTC设置"</item>
     </string-array>
 
 

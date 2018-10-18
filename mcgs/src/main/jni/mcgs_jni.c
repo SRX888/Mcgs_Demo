@@ -32,11 +32,18 @@ JNIEXPORT jint JNICALL Java_com_mcgs_srx_Util_JniUtil_getUsbMode
  */
 JNIEXPORT void JNICALL Java_com_mcgs_srx_Util_JniUtil_setUsbMode
         (JNIEnv * env, jobject jobject1, jint jint1){
-
-           int  ret = hal_set_usb_mode(HAL_USB_OTG_MASTER);
-            LOGV( "jint1 ret = %d\n", ret );
-            LOGV( "jint1 setUsbMode = %d\n", jint1 );
-    LOGV("Java_cn_com_srx_mcgs_1jni_JniUtil_setUsbMode ");
+        int ret = -1;
+        if(0 == jint1){
+             ret = hal_set_usb_mode(HAL_USB_OTG_MASTER);
+            // LOGV( "jint1 HAL_USB_OTG_MASTER = %d\n", jint1 );
+        }else if(1 == jint1){
+             ret = hal_set_usb_mode(HAL_USB_OTG_DEVICE);
+          //   LOGV( "jint1 HAL_USB_OTG_DEVICE = %d\n", jint1 );
+        }else if(2 == jint1){
+             ret = hal_set_usb_mode(HAL_USB_OTG_UNKNOWN);
+          //  LOGV( "jint1 HAL_USB_OTG_UNKNOWN = %d\n", jint1 );
+        }
+            LOGV( "ret = %d\n", ret );
 }
 
 /*
@@ -47,8 +54,10 @@ JNIEXPORT void JNICALL Java_com_mcgs_srx_Util_JniUtil_setUsbMode
 JNIEXPORT jint JNICALL Java_com_mcgs_srx_Util_JniUtil_setBeeTime
         (JNIEnv *env, jobject jobject1, jint jint1){
 
-    LOGV("Java_cn_com_srx_mcgs_1jni_JniUtil_setBeeTime ");
-    return 0;
+     LOGV( "setBeeTime = %d\n", jint1 );
+     int ret = hal_set_bee_time(jint1);
+     LOGV( "ret = %d\n", ret );
+     return ret;
 }
 
 
@@ -136,6 +145,8 @@ JNIEXPORT jint JNICALL Java_com_mcgs_srx_Util_JniUtil_getRtcTime
 JNIEXPORT jint JNICALL Java_com_mcgs_srx_Util_JniUtil_setRtcTime
         (JNIEnv * env, jobject jobject1, jint jint1){
 
-    LOGV("Java_cn_com_srx_mcgs_1jni_JniUtil_setRtcTime ");
+   // LOGV( "setRtcTime = %d\n", jint1 );
+  //  int ret = hal_set_rtc_time(jint1);
+   // LOGV( "ret = %d\n", ret );
     return 0;
 }

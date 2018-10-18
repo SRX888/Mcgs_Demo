@@ -933,8 +933,9 @@
             "(2)生成校准参数后，以后驱动每次接收到触摸事件就会使用校准参数进行校准"</string>
 
     <string name="mcgs_usb_mode">"USB模式配置"</string>
-    <string name="mcgs_usb_mode_default">0</string>
+    <string name="mcgs_usb_mode_default">1</string>
     <string name="mcgs_usb_mode_set">设置usb当前模式</string>
+    <string name="mcgs_usb_mode_summry">"OTG 主设备模式就是类似于通用USB外设接口，OTG从设备模式就是Android 默认的USB 调试模式"</string>
 
 
     <string name="mcgs_lcd_set">"背光设置"</string>

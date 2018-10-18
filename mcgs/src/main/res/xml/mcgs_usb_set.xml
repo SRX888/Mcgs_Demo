@@ -35,6 +35,6 @@
 
     <Preference
         android:title="@string/mcgs_usb_mode"
-        android:summary="@string/mcgs_usb_mode" />
+        android:summary="@string/mcgs_usb_mode_summry" />
    
 </PreferenceScreen>   

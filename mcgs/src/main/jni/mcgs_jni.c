@@ -3,6 +3,7 @@
 //
 
 #include "com_mcgs_srx_Util_JniUtil.h"
+#include "hal-api.h"
 #include <string.h>
 #include <jni.h>
 #include <stdio.h>
@@ -32,7 +33,7 @@ JNIEXPORT jint JNICALL Java_com_mcgs_srx_Util_JniUtil_getUsbMode
 JNIEXPORT void JNICALL Java_com_mcgs_srx_Util_JniUtil_setUsbMode
         (JNIEnv * env, jobject jobject1, jint jint1){
 
-           int  ret = hal_set_usb_mode(jint1);
+           int  ret = hal_set_usb_mode(HAL_USB_OTG_MASTER);
             LOGV( "jint1 ret = %d\n", ret );
             LOGV( "jint1 setUsbMode = %d\n", jint1 );
     LOGV("Java_cn_com_srx_mcgs_1jni_JniUtil_setUsbMode ");

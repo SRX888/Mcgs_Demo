@@ -33,6 +33,9 @@ public class LcdSet extends PreferenceActivity implements SharedPreferences.OnSh
     private static final String KEY_LCD_SET = "key_lcd_set";
     private static final String KEY_LCD_SET_BRIGHTNESS = "key_lcd_brightness_set";
 
+    private static final int KEY_LCD_OPEN = 0;
+    private static final int KEY_LCD_CLOSE = 1;
+
     private JniUtil mJniUtil;
 
     @Override
@@ -75,9 +78,11 @@ public class LcdSet extends PreferenceActivity implements SharedPreferences.OnSh
         if (key.equals(KEY_LCD_SET)) {
             if(mLcdSet.isChecked()){
                 mEditTextbrightness.setEnabled(true);
+                mJniUtil.setLcdStatus(KEY_LCD_OPEN);
 
             }else {
                 mEditTextbrightness.setEnabled(false);
+                mJniUtil.setLcdStatus(KEY_LCD_CLOSE);
             }
 
             //TODO
@@ -89,7 +94,14 @@ public class LcdSet extends PreferenceActivity implements SharedPreferences.OnSh
 
             //TODO
             int brightness = Integer.valueOf(value);
-            mJniUtil.setBacklightbrightness(brightness);
+            int lcdStatus = mJniUtil.getLcdStatus();
+            if(lcdStatus == KEY_LCD_OPEN){
+                mJniUtil.setBacklightbrightness(brightness);
+                Log.i("srx", "can setBacklightbrightness: ");
+            }else{
+                Log.i("srx", "can not  setBacklightbrightness: ");
+            }
+
         }
 
 

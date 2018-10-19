@@ -82,7 +82,7 @@ public class RtcSet extends PreferenceActivity implements SharedPreferences.OnSh
     private void setCustomActionBar() {
         // TODO Auto-generated method stub
         View actionbar_title = LayoutInflater.from(this).inflate(
-                R.layout.actionbar_layout_bee, null);
+                R.layout.actionbar_layout_rtc, null);
 
         title = (TextView) actionbar_title.findViewById(R.id.title);
 

@@ -42,19 +42,30 @@ public class DocFragment extends Fragment implements View.OnClickListener {
     //doc 0 view end
 
 
+    //doc  rotation start
+    private TextView mTvIndex2_0;
+    private TextView mTvIndex2_1;
+    private TextView mTvIndex2_2;
+    private TextView mTvIndex2_3;
+    private TextView mTvIndex2_4;
+    private ScrollView mScrollView2;
+
+    //doc rotation end
+
+
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             switch (msg.what) {
                 case 0:
-                    initDocVew0();
+                    initDocView0();
                     break;
                 case 1:
 //                    mTextView.setText(R.string.developer_guide_documentation);
                     break;
                 case 2:
-//                    mTextView.setText(R.string.rotation_documentation);
+                    initRatotionw();
                     break;
                 case 3:
 //                    mTextView.setText(R.string.tp_calibration_documentation);
@@ -93,6 +104,12 @@ public class DocFragment extends Fragment implements View.OnClickListener {
             case 0:
                 view = mUtils.getFragmentView(mContext, R.layout.doc_0_fragment);
                 break;
+            case 1:
+                view = mUtils.getFragmentView(mContext, R.layout.docfragment);
+                break;
+            case 2:
+                view = mUtils.getFragmentView(mContext, R.layout.doc_2_fragment);
+                break;
             default:
                 view = mUtils.getFragmentView(mContext, R.layout.docfragment);
                 break;
@@ -100,7 +117,7 @@ public class DocFragment extends Fragment implements View.OnClickListener {
         return view;
     }
 
-    private void initDocVew0() {
+    private void initDocView0() {
         mTvIndex0_0 = (TextView) view.findViewById(R.id.indexes0_0);
         mTvIndex0_1 = (TextView) view.findViewById(R.id.indexes0_1);
         mTvIndex0_2 = (TextView) view.findViewById(R.id.indexes0_2);
@@ -114,6 +131,26 @@ public class DocFragment extends Fragment implements View.OnClickListener {
         mTvIndex0_3.setClickable(true);
         mTvIndex0_3.setOnClickListener(this);
         mScrollView0 = (ScrollView) view.findViewById(R.id.scrollview0);
+    }
+
+
+    private void initRatotionw() {
+        mTvIndex2_0 = (TextView) view.findViewById(R.id.indexes2_0);
+        mTvIndex2_1 = (TextView) view.findViewById(R.id.indexes2_1);
+        mTvIndex2_2 = (TextView) view.findViewById(R.id.indexes2_2);
+        mTvIndex2_3 = (TextView) view.findViewById(R.id.indexes2_3);
+        mTvIndex2_4 = (TextView) view.findViewById(R.id.indexes2_4);
+        mTvIndex2_0.setClickable(true);
+        mTvIndex2_0.setOnClickListener(this);
+        mTvIndex2_1.setClickable(true);
+        mTvIndex2_1.setOnClickListener(this);
+        mTvIndex2_2.setClickable(true);
+        mTvIndex2_2.setOnClickListener(this);
+        mTvIndex2_3.setClickable(true);
+        mTvIndex2_3.setOnClickListener(this);
+        mTvIndex2_4.setClickable(true);
+        mTvIndex2_4.setOnClickListener(this);
+        mScrollView2 = (ScrollView) view.findViewById(R.id.scrollview2);
     }
 
 
@@ -138,6 +175,22 @@ public class DocFragment extends Fragment implements View.OnClickListener {
             case R.id.indexes0_3:
                 setScrollViewPosition(mScrollView0, 15000);
                 break;
+            case R.id.indexes2_0:
+                setScrollViewPosition(mScrollView2, 0);
+                break;
+            case R.id.indexes2_1:
+                setScrollViewPosition(mScrollView2, 1830);
+                break;
+            case R.id.indexes2_2:
+                setScrollViewPosition(mScrollView2, 2350);
+                break;
+            case R.id.indexes2_3:
+                setScrollViewPosition(mScrollView2, 4930);
+                break;
+            case R.id.indexes2_4:
+                setScrollViewPosition(mScrollView2, 6000);
+                break;
+
         }
 
     }

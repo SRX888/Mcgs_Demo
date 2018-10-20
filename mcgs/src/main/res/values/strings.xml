@@ -757,19 +757,19 @@
             "\n"
             "\n"
             "通过ontouchEvent方法监听手指点击事件把点击的事件的产生的数据通过一列的触摸校正算法及逻辑处理把数据转化成的驱动可以使用的诗句，通过saveCalibrationResult（）方法保存起来。\n"
-            "\n" +
+            "\n"
             "这样就把校准的数据保存到了 /data/calibration中，最后把/data/calibration的校准参数传递给tsc2007驱动就完成屏幕的校准。该功能在系统中Mcgs-demo app中应用中屏幕校准可以设置。\n"
             "\n"
             "\n"
             "\n"</string>
-    <string name="usb_set_documentation">"Android通过两种模式，来支持各种USB外围设备和Android USB附件（硬件实现了Android的附件协议）：USB附件模式和USB主机模式。在USB附件模式下，外部 USB 硬件充当USB主机。（作为）附件的例子，包括机器人控制器、扩展插座（docking stations）、诊断和音乐设备、电子报亭（kiosks）、读卡器等其他设备。这种模式给予不具备主机功能的Android设备，与USB硬件通信的能力。Android USB附件，必须被设计为与装有Android的设备一起工作，并且必须遵循Android附件通讯协议。在USB主机模式下，装有Android的设备扮演着主机的角色。（外围）设备的例子，包括数码像机，键盘，鼠标和游戏控制器。那些适应面很广的USB设备，仍可以与Android应用交互，前提是这些Android应用可以正确的与这些设备通讯。\n" +
-            "\n" +
+    <string name="usb_set_documentation">"Android通过两种模式，来支持各种USB外围设备和Android USB附件（硬件实现了Android的附件协议）：USB附件模式和USB主机模式。在USB附件模式下，外部 USB 硬件充当USB主机。（作为）附件的例子，包括机器人控制器、扩展插座（docking stations）、诊断和音乐设备、电子报亭（kiosks）、读卡器等其他设备。这种模式给予不具备主机功能的Android设备，与USB硬件通信的能力。Android USB附件，必须被设计为与装有Android的设备一起工作，并且必须遵循Android附件通讯协议。在USB主机模式下，装有Android的设备扮演着主机的角色。（外围）设备的例子，包括数码像机，键盘，鼠标和游戏控制器。那些适应面很广的USB设备，仍可以与Android应用交互，前提是这些Android应用可以正确的与这些设备通讯。\n"
+            "\n"
             "图1展示了两种模式的异同。当Android设备处于主机模式时，它扮演USB主机角色并为总线供电。当Android设备处于附件模式时，被连接的USB硬件（在这种情况下是一个Android USB附件）扮演主机角色并给总线供电。Android通过两种模式，来支持各种USB外围设备和Android USB附件（硬件实现了Android的附件协议）：USB附件模式和USB主机模式。在USB附件模式下，外部 USB 硬件充当USB主机。（作为）附件的例子，包括机器人控制器、扩展插座（docking stations）、诊断和音乐设备、电子报亭（kiosks）、读卡器等其他设备。这种模式给予不具备主机功能的Android设备，与USB硬件通信的能力。Android USB附件，必须被设计为与装有Android的设备一起工作，并且必须遵循Android附件通讯协议。在USB主机模式下，装有Android的设备扮演着主机的角色。（外围）设备的例子，包括数码像机，键盘，鼠标和游戏控制器。那些适应面很广的USB设备，仍可以与Android应用交互，前提是这些Android应用可以正确的与这些设备通讯。\n" +
-            "\n" +
+            "\n"
             "图1展示了两种模式的异同。当Android设备处于主机模式时，它扮演USB主机角色并为总线供电。当Android设备处于附件模式时，被连接的USB硬件（在这种情况下是一个Android USB附件）扮演主机角色并给总线供电。Android通过两种模式，来支持各种USB外围设备和Android USB附件（硬件实现了Android的附件协议）：USB附件模式和USB主机模式。在USB附件模式下，外部 USB 硬件充当USB主机。（作为）附件的例子，包括机器人控制器、扩展插座（docking stations）、诊断和音乐设备、电子报亭（kiosks）、读卡器等其他设备。这种模式给予不具备主机功能的Android设备，与USB硬件通信的能力。Android USB附件，必须被设计为与装有Android的设备一起工作，并且必须遵循Android附件通讯协议。在USB主机模式下，装有Android的设备扮演着主机的角色。（外围）设备的例子，包括数码像机，键盘，鼠标和游戏控制器。那些适应面很广的USB设备，仍可以与Android应用交互，前提是这些Android应用可以正确的与这些设备通讯。\n" +
-            "\n" +
+            "\n"
             "图1展示了两种模式的异同。当Android设备处于主机模式时，它扮演USB主机角色并为总线供电。当Android设备处于附件模式时，被连接的USB硬件（在这种情况下是一个Android USB附件）扮演主机角色并给总线供电。Android通过两种模式，来支持各种USB外围设备和Android USB附件（硬件实现了Android的附件协议）：USB附件模式和USB主机模式。在USB附件模式下，外部 USB 硬件充当USB主机。（作为）附件的例子，包括机器人控制器、扩展插座（docking stations）、诊断和音乐设备、电子报亭（kiosks）、读卡器等其他设备。这种模式给予不具备主机功能的Android设备，与USB硬件通信的能力。Android USB附件，必须被设计为与装有Android的设备一起工作，并且必须遵循Android附件通讯协议。在USB主机模式下，装有Android的设备扮演着主机的角色。（外围）设备的例子，包括数码像机，键盘，鼠标和游戏控制器。那些适应面很广的USB设备，仍可以与Android应用交互，前提是这些Android应用可以正确的与这些设备通讯。\n" +
-            "\n" +
+            "\n"
             "图1展示了两种模式的异同。当Android设备处于主机模式时，它扮演USB主机角色并为总线供电。当Android设备处于附件模式时，被连接的USB硬件（在这种情况下是一个Android USB附件）扮演主机角色并给总线供电。"</string>
 
     <string name="system_common_modify">
@@ -1294,10 +1294,51 @@
         "</string>
 
 
-    <string name="android_calibrate_doc_3">三、A64屏幕校准说明</string>
-    <string name="android_calibrate_doc_4">三、A64屏幕校准说明</string>
-    <string name="android_calibrate_doc_5">三、A64屏幕校准说明</string>
-    <string name="android_calibrate_doc_6">三、A64屏幕校准说明</string>
+    <string name="index1_0">一、Android studio下载</string>
+    <string name="index1_1">二、安装步骤</string>
+    <string name="index1_2">三、配置 Studio</string>
+    <string name="index1_3">3.1 Studio的SDK环境配置</string>
+    <string name="index1_4">3.2 Studio文件编码的设置</string>
+
+
+    <string name="android_studio_1">"一、Android studio下载\n"
+            "https://developer.android.com/sdk/index.html （需翻墙）或者通过其他途径下载安装包。我下载的是android-studio-bundle-145.3537739-windows.exe 为完整安装包，其中包括IDE和SDK Tools\n"
+             "\n"
+            "二、安装步骤\n"
+          "\n"
+            "双击 android-studio-bundle-145.3537739-windows.exe 进行安装，下面我将用图例来说明安装步骤。"
+            "\n" </string>
+
+
+    <string name="android_studio_2">"说明：Android Studio: 强制选项，为IDE工具部分。 Android SDK: 可选选项，为SDK工具包部分。 Android Virtual Device: 可选选项，为虚拟机部分"\n""</string>
+    <string name="android_studio_3">"说明：Android Studio Installation Location 为Android Studio IDE安装目录，Android SDK Installation Location 为Android SDK安装目录，两者都可以按照自己的需要重新选择安装目录。"</string>
+
+    <string name="android_studio_4">"建议：如果电脑没有翻墙的情况下，建议不要立即打开Android Studio，后续设置参考 “配置Android Studio部分”\n"
+            "\n"
+            "三、配置Android Studio\n"
+            "\n"
+            "因为我之前已经安装使用过Android Studio，所以不是第一次打开Studio，从安装完成到打开Studio过程中少了一两个步骤（不过基本不重要，按照默认选项即可)，直接进入了最近打开的工程界面。现在返回到Android Studio开始页面，图例如下："</string>
+
+    <string name="android_studio_5">"说明：Start a new Android Studio Project：新建Android Studio项目； Open an existing Android Studio Project：打开已经存在的项目； Check out project from Version Control：检出项目源码(可以从 svn，git等流行的代码仓库中检出)； Configure：配置studio； import project (Eclipse ADT,Gradle,etc.)：导入项目\n"
+            "\n"
+            "在这个版本的Android Studio中，Configure放在了右下角。\n"
+            "\n"
+            "3.1  Android Studio的SDK环境配置\n"</string>
+
+
+    <string name="android_studio_6">"\n打开Android Studio开始界面，依次单击以下图例中用红框圈起来的选项。\n"</string>
+
+
+    <string name="android_studio_7">"说明：※第一个输入框为你本机中Android SDK的目录，确保要与你SDK安装目录一致。※第二个输入框为你本机中JDK的目录，确保要与你JDK的安装目录一致。\n"
+            "\n"
+            "3.2  Android Studio文件编码的设置\n"
+            "\n"
+            "文件编码格式是非常重要的一个问题，容易被忽略。在使用eclipse时，我们的文件编码格式习惯通常是UTF-8，但eclipse默认会和操作系统相同（默认GBK），由于GBK编码会带来或多或少的乱码情况。所以，一个不成文的规定就是，用通用的编码格式UTF-8。\n"
+            "\n"
+            "设置步骤：在Android Studio的打开页面以此单击Configure→Project Defaults→Settings"</string>
+
+
+    <string name="android_studio_8">按照以上步骤选好之后，点击Apply保存配置，然后点击OK退出。Android studio 就配置成功了</string>
 
 
 </resources>

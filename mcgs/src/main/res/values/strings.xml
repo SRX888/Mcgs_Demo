@@ -955,7 +955,6 @@
     <string name="mcgs_rtc_set_time">"设置RTC时间"</string>
 
 
-
     <string name="mcgs_lct_set_default">"50"</string>
     <string name="mcgs_rtc_set_default">"0"</string>
     <string name="mcgs_bee_set_default">"10"</string>
@@ -969,6 +968,98 @@
     <string name="tv_company_name">"公司：深圳昆仑通态科技有限责任公司"</string>
     <string name="tv_demo_summry">"mcgs-demo描述：mcgs-demo主要分三个部分文档，应用及设置，其中文档中包括主要包括常用的文档，应用主要包括设备的配置及应用，设置主要的设备及demo的描述信息"</string>
 
+
+    <string name="index0_0">一、Android Studio 和 SDK获取</string>
+    <string name="index0_1">二、Android Studio 安装过程</string>
+    <string name="index0_2">三、第一个Helloworld程序</string>
+    <string name="index0_3">四、Helloworld demo图样</string>
+
+
+    <string name="android_demo_01">"一、Android Studio 和 SDK获取\n"
+            "\n"
+            "方式1：进入Android Developers官方网站下载；\n"
+            "\n"
+            "方式2：进入Android Studio中文社区下载；\n"
+            "\n"
+            "方式3：进入Android Dev Tools网站下载。\n"
+            "\n"
+            "高速通道：（小白直接戳以下链接）\n"
+            "\n"
+            "        安装包：android-studio-bundle-171.4443003-windows.exe\n"
+            "\n"
+            "        推荐进入Android Dev Tools转一转，这个网站收集整理了Android开发所需的Android SDK、开发中用到的工具、Android开发教程、Android设计规范，免费的设计素材等。所有资源一站式齐全。
+            "\n"
+        "</string>
+
+
+    <string name="android_demo_02">"二、Android Studio 3.0安装过程\n"
+            "\n"
+            "安装包下载完成后,我们双击运行，出现以下界面："</string>
+
+
+    <string name="android_demo_03">"\n"
+            "\n"
+            "点击“Next”即可：" "\n"
+    "\n"</string>
+
+    <string name="android_demo_04">"\n"
+            "\n"
+            "按照图中所示，勾选AVD，点击“Next”继续："
+        "\n"</string>
+
+    <string name="android_demo_05">"\n"
+            "\n"
+            "这一步很重要：Android Studio体积较大，不建使用默认安装路径，点击“Browse”手动设置路径。
+
+如果大家嫌麻烦，直接用鼠标选中“C：\Program....”这里的C，然后键盘输入"D"，直接就ok了。
+
+然后我们“Next”继续："
+        "\n"</string>
+
+    <string name="android_demo_06">"至此，Android Studio3.0就算安装完成了，等待程序运行起来。"</string>
+    <string name="android_demo_07">"如果我们是第一次安装，按图中所示操作就行；\n"
+            "\n"
+            "这里解释下第一个选项的作用：当你之前安装过AS时，你可以吧你对AS界面，以及代码文本的配置信息保存起来，这个时候第一个选项就是重新载入这些配置，然后AS启动后还是你当初的配置风格。"</string>
+
+    <string name="android_demo_08">" "\n" 这个窗口提示我设置代理服务器啥的，咱先不管，直接点“Cancel”："\n""</string>
+    <string name="android_demo_09">" "\n" 点击next进入UI界面主题选择界面，可以选择自己喜欢的风格，我选的是白色风格；"\n""</string>
+    <string name="android_demo_10">" "\n" 这里需要指定SDK的本地路径，如果之前电脑中已经存在SDK，可以指定该路径，后续就可以不用下载SDK；
+        "\n"
+        "\n" 进入AS的欢迎界面"\n""</string>
+    <string name="android_demo_11">"大功告成，恭喜你成功安装Android Studio！！！ "</string>
+    <string name="android_demo_12">""\n" "\n" 三.第一个Helloworld程序\n"
+            "\n"
+            "任务目标：配置AS第一次运行环境，并且能成功编译运行一个APP，以helloworld为例。\n"
+            "\n"
+            "任务开始：\n"
+            "\n"
+            "点击上图中的Start a new Android Studio project新建一个工程，进入下面的界面：
+        "\n"
+        "\n"
+        "</string>
+
+    <string name="android_demo_13">"注意事项：“Company domain”处包名是倒序的，“.com”在最后边，不要强行该更改"\n""</string>
+    <string name="android_demo_14">"在这里设置APK适应的设备类型和最低支持的Android版本，可根据项目需要设置；"\n""</string>
+    <string name="android_demo_15">"我们选择“Empty Activity”，然后Activity名称和布局名称保持默认，点击完成；"\n""</string>
+    <string name="android_demo_16">"至此，Helloworld工程就配置完毕了，接下来要等待熬人的Gradle构建过程了；"\n"
+        构建完成后，整个工程应该是这个样子：
+        "\n"
+        "\n"
+        "</string>
+
+    <string name="android_demo_17"> "现在我们整个Android Studio3.0的安装和配置都已完成，我将在下一篇里介绍如何运行这个Helloworld工程。\n"
+    "\n"
+    "\n"
+    "部署工程就可以运行，有USB线连接到pc,运行即可  "\n"
+        "\n"
+       四、Helloworld demo图样
+        USB线连接到pc,运行即可，点击运行 "\n"
+        demo截图"</string>
+
+    <string name="android_demo_18"> "对应的source code 链接：\n"
+            "链接：https://pan.baidu.com/s/1Npj28ZzeUxyw2_bN0DY3SQ 密码：ikfp
+           "\n"
+        "</string>
 
 
 

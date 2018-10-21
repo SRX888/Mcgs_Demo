@@ -7,6 +7,7 @@
         <item>"屏幕旋转文档"</item>
         <item>"触摸校准文档"</item>
         <item>"Android Studio NDK 使用"</item>
+        <item>"Android Studio开发JNI示例 "</item>
 
     </string-array>
 

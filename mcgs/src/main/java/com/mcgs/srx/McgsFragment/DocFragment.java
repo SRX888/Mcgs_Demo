@@ -72,6 +72,14 @@ public class DocFragment extends Fragment implements View.OnClickListener {
     private ScrollView mScrollView3;
     //doc rotation end
 
+    //doc  ndk start
+    private TextView mTvIndex4_0;
+    private TextView mTvIndex4_1;
+    private TextView mTvIndex4_2;
+    private TextView mTvIndex4_3;
+    private ScrollView mScrollView4;
+    //doc ndk end
+
 
     private Handler mHandler = new Handler() {
         @Override
@@ -91,7 +99,7 @@ public class DocFragment extends Fragment implements View.OnClickListener {
                     initCalibrateView();
                     break;
                 case 4:
-//                    mTextView.setText(R.string.system_common_modify);
+                    initNdkView();
                     break;
                 default:
                     //mTextView.setText("default");
@@ -132,6 +140,9 @@ public class DocFragment extends Fragment implements View.OnClickListener {
                 break;
             case 3:
                 view = mUtils.getFragmentView(mContext, R.layout.doc_3_fragment);
+                break;
+            case 4:
+                view = mUtils.getFragmentView(mContext, R.layout.doc_4_fragment);
                 break;
             default:
                 view = mUtils.getFragmentView(mContext, R.layout.docfragment);
@@ -216,6 +227,22 @@ public class DocFragment extends Fragment implements View.OnClickListener {
         mScrollView1 = (ScrollView) view.findViewById(R.id.scrollview1);
     }
 
+    private void initNdkView() {
+        mTvIndex4_0 = (TextView) view.findViewById(R.id.indexes4_0);
+        mTvIndex4_1 = (TextView) view.findViewById(R.id.indexes4_1);
+        mTvIndex4_2 = (TextView) view.findViewById(R.id.indexes4_2);
+        mTvIndex4_3 = (TextView) view.findViewById(R.id.indexes4_3);
+        mTvIndex4_0.setClickable(true);
+        mTvIndex4_0.setOnClickListener(this);
+        mTvIndex4_1.setClickable(true);
+        mTvIndex4_1.setOnClickListener(this);
+        mTvIndex4_2.setClickable(true);
+        mTvIndex4_2.setOnClickListener(this);
+        mTvIndex4_3.setClickable(true);
+        mTvIndex4_3.setOnClickListener(this);
+        mScrollView4 = (ScrollView) view.findViewById(R.id.scrollview4);
+    }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -285,6 +312,18 @@ public class DocFragment extends Fragment implements View.OnClickListener {
                 setScrollViewPosition(mScrollView3, 6300);
                 break;
 
+            case R.id.indexes4_0:
+                setScrollViewPosition(mScrollView4, 0);
+                break;
+            case R.id.indexes4_1:
+                setScrollViewPosition(mScrollView4, 210);
+                break;
+            case R.id.indexes4_2:
+                setScrollViewPosition(mScrollView4, 1500);
+                break;
+            case R.id.indexes4_3:
+                setScrollViewPosition(mScrollView4, 5900);
+                break;
         }
 
     }

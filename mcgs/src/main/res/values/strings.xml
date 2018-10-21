@@ -1346,4 +1346,87 @@
     <string name="android_studio_8">按照以上步骤选好之后，点击Apply保存配置，然后点击OK退出。Android studio 就配置成功了</string>
 
 
+    <string name="index4_0">一、NDK概述</string>
+    <string name="index4_1">二、NDK下载</string>
+    <string name="index4_2">三、NDK配置</string>
+    <string name="index4_3">四、编写JNI接口</string>
+
+
+    <string name="android_jni_1">"一、NDK概述\n"
+            "\n"
+            "在工作中，开发的项目一直没有用到jni知识，很多情况下都是拿别人的so包来用，后面有涉及硬件库的使用，需要使用到jni.\n"
+            "\n"
+            "二、NDK下载\n"
+            "\n"
+            "要实现我们的jni，首先一定要先下载NDK，NDK是什么？我相信很多小伙伴面试的时候一定背这道面试题了吧.如下：\n"
+            "NDK是一系列工具的集合\n"
+            "NDK提供了一份稳定、功能有限的API头文件声明\n"
+            "NDK的发布，使“Java+C”的开发方式终于转正，成为官方支持的开发方式\n"
+            "NDK将使Android平台支持C开发的开端\n"
+            "那么我们下载NDK，有两种下载方式：\n"
+            "这是Google官方下载 点击下载NDK；\n"
+            "通过SDK Manger下载"</string>
+
+
+
+    <string name="android_jni_2">"点击SDK Manger -> SDK Tools -> NDK -> 点击Apply\n"
+            "\n"
+            "OK,NDK下载完成\n"
+            "\n"
+            "三、NDK配置\n"
+            "我们先创建一个项目，里面只有一个MainActivity"</string>
+
+
+
+    <string name="android_jni_3">"右键项目 -> Open Module -> Android NDK Location -> OK -> 等待编译   "\n""</string>
+    <string name="android_jni_4">"我们发现根目录local.properties里面多了NDK路径如下图： "\n""</string>
+
+
+
+    <string name="android_jni_5">"接着我们在根目录gradle.properties下面加上如下图：\n"
+            "\n"
+            "android.useDeprecatedNdk=true"</string>
+
+
+    <string name="android_jni_6">"继续我们在module下面的build.gradle下面加上ndk节点如下图：\n"
+            "\n"
+            "ndk {\n"
+            "        moduleName \"JNISample\"\n"
+            "       \n"
+            "    }"</string>
+    <string name="android_jni_7">"\n\n四、编写JNI接口\n"
+            "我们创建一个JNIUtil的类，编写一个native方法如下图:"</string>
+    <string name="android_jni_8">"我们Build -> Make Project一下，我们会发现在/JniTestSample/app/build/intermediates/下面多了一个classes文件夹.我们可以打开AS下面的Terminal进入到classes下面的debug文件夹下\n"
+            "\n"
+            "如下图："</string>
+    <string name="android_jni_9">"前面有重点有弯道，请注意\n"
+            "\n"
+            "我们在Terminal执行一下javah com.xiaoyuan.jnitestsample.JNIUtil javah是后面是我的包名\n"
+            "\n"
+            "你们一替换成自己的包名，执行完这句话以后会有个.h文件生成出来如下图所示："</string>
+    <string name="android_jni_10">"我们基本已经完成一半了，但是我们发现很多小伙伴执行javah的时候会出现不少内部或者外部命令这样的问题，这样的问题大多数都是由于java环境变量没有配好，如何配置环境变量，需要小伙伴自己百度一下了。\n"
+            "生成.h文件不够，这只是声明了这个方法，我们还需要实现它，我在main文件下新建一个jni文件夹如下图："</string>
+    <string name="android_jni_11">"新建以后，我们把刚才生成的.h文件移动到你新建的jni文件夹下，紧接着我们创建一个c++类来实现.h里面声明的方法.\n"
+            "\n"
+            "我们把.h类纯复制一份，把后缀名改成.cpp。里面实现它的方法，我们在方法里面返回一句话；\n"
+            "\n"
+            "如下图："</string>
+    <string name="android_jni_12">"上面include就是咱们的倒包，我们看他的方法名是有规律的就是java+包名+类名+方法名。\n"
+            "\n"
+            "接着我们在JNIUtil里面加上\n"
+            "\n"
+            "static\n"
+            "{\n"
+            "    System.loadLibrary(\"JNITestSample\");//名字注意，需要跟你的build.gradle ndk节点下面的名字一样\n"
+            "}"</string>
+    <string name="android_jni_13">"让系统加载我们编译成的so。\n"
+            "\n"
+            "最后我们来使用一下，看是否可以编译so. 我们需要在MainActivity来使用一下如下图："</string>
+    <string name="android_jni_14">我们运行一下：OK 我们已经顺利的编译出so如下图：</string>
+    <string name="android_jni_15">并且我们的手机端已经显示出了我们的“HelloWorld!”:</string>
+    <string name="android_jni_16"></string>
+    <string name="android_jni_17"></string>
+
+
+
 </resources>

@@ -960,8 +960,13 @@
     <string name="mcgs_bee_set_default">"10"</string>
 
 
-    <string name="android_version">"Android 版本： Android 6.0"</string>
+    <string name="android_version">"Android 版本： Android 6.0.1"</string>
     <string name="hardware_platform">"硬件平台： 全志 A64"</string>
+    <string name="devices_module">"型号： tulip-mcgs_1920x1080N42"</string>
+    <string name="firmware_version">"固件版本号：v3.1 tulip_mcgs_1920x1080N42-eng 6.0.1 MMB29M 20180920 test-keys"</string>
+    <string name="chip_model">"芯片型号：QuadCore-A64"</string>
+
+
 
     <string name="demo_name">"Demo 名称：mcgs-demo"</string>
     <string name="demo_version">"Demo版本号："</string>

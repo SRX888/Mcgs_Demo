@@ -40,6 +40,47 @@
             android:text="@string/hardware_platform"
             />
 
+        <com.mcgs.srx.Util.JustifyTextView
+            android:id="@+id/tv_module"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_title"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="40dp"
+            android:lineSpacingExtra="5dp"
+            android:textSize="25dp"
+            android:text="@string/devices_module"
+            />
+
+        <com.mcgs.srx.Util.JustifyTextView
+            android:id="@+id/firmware_version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_module"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="40dp"
+            android:lineSpacingExtra="5dp"
+            android:textSize="25dp"
+            android:text="@string/firmware_version"
+            />
+
+
+        <com.mcgs.srx.Util.JustifyTextView
+            android:id="@+id/chip_model"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/firmware_version"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="40dp"
+            android:lineSpacingExtra="5dp"
+            android:textSize="25dp"
+            android:text="@string/chip_model"
+            />
+
+
 
 
     </RelativeLayout>

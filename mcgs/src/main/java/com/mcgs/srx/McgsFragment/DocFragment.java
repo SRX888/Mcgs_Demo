@@ -30,12 +30,12 @@ public class DocFragment extends Fragment {
 
     //doc 0 view start
     private MarkdownView mContentMarkdownView0;
-    private static final String KEY_FILENAME_0 = "rotation.md";
+    private static final String KEY_FILENAME_0 = "app_call_native.md";
     //doc 0 view end
 
     //doc studio view start
     private MarkdownView mContentMarkdownView1;
-    private static final String KEY_FILENAME_1 = "rotation.md";
+    private static final String KEY_FILENAME_1 = "jni_demo.md";
     //doc studio view end
 
     //doc  rotation start

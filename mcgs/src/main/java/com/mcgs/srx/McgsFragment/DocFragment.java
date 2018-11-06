@@ -40,17 +40,17 @@ public class DocFragment extends Fragment {
 
     //doc  rotation start
     private MarkdownView mContentMarkdownView2;
-    private static final String KEY_FILENAME_2 = "rotation.md";
+    private static final String KEY_FILENAME_2 = "hello_word.md";
     //doc rotation end
 
     //doc  Calibrate start
     private MarkdownView mContentMarkdownView3;
-    private static final String KEY_FILENAME_3 = "calibration.md";
+    private static final String KEY_FILENAME_3 = "rotation.md";
     //doc Calibrate end
 
     //doc  ndk start
     private MarkdownView mContentMarkdownView4;
-    private static final String KEY_FILENAME_4 = "rotation.md";
+    private static final String KEY_FILENAME_4 = "calibration.md";
     //doc ndk end
 
     //doc  jni start

@@ -1,13 +1,17 @@
 package com.mcgs.srx.Util;
 
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+
+import com.mcgs.srx.R;
 
 import java.util.logging.Handler;
 
@@ -53,9 +57,9 @@ public class Utils {
         return mPreferences.getBoolean(key, value);
     }
 
-    public void setBooleanPreference(String key, boolean value){
-       if(D) Log.i(TAG, "setBooleanPreference: key: " + key + " value :" + value);
-        mEditor.putBoolean(key,value);
+    public void setBooleanPreference(String key, boolean value) {
+        if (D) Log.i(TAG, "setBooleanPreference: key: " + key + " value :" + value);
+        mEditor.putBoolean(key, value);
         mEditor.commit();
 
     }
@@ -70,9 +74,9 @@ public class Utils {
         return mPreferences.getInt(key, value);
     }
 
-    public void setIntPreference(String key, int value){
+    public void setIntPreference(String key, int value) {
         if (D) Log.i(TAG, "setIntPreference: key: " + key + " value :" + value);
-        mEditor.putInt(key,value);
+        mEditor.putInt(key, value);
         mEditor.commit();
 
     }
@@ -89,5 +93,41 @@ public class Utils {
         return view;
     }
 
+
+    private void showDialog(String message) {
+        new AlertDialog.Builder(mContext)
+                .setTitle(R.string.error_title)
+                .setMessage(message)
+                .setPositiveButton(android.R.string.ok,
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int which) {
+                                dialog.dismiss();
+                            }
+                        })
+                .create().show();
+    }
+
+    public void showErrorDialog(int value) {
+        switch (value) {
+            case -13:
+                showDialog(mContext.getString(R.string.permission_msg));
+            case -11:
+                showDialog(mContext.getString(R.string.again_msg));
+                break;
+            case -19:
+                showDialog(mContext.getString(R.string.device_msg));
+                break;
+            case -22:
+                showDialog(mContext.getString(R.string.argument_msg));
+                break;
+            case -28:
+                showDialog(mContext.getString(R.string.space_msg));
+                break;
+            default:
+                break;
+        }
+
+    }
 
 }

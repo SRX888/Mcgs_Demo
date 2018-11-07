@@ -18,7 +18,7 @@ public class JniUtil {
     //USB mode set
     public native int getUsbMode();
 
-    public native void setUsbMode(int mode);
+    public native int setUsbMode(int mode);
 
     //Bee mode set
     public native int setBeeTime(int time);

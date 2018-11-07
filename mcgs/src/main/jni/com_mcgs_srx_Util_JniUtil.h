@@ -18,9 +18,9 @@ JNIEXPORT jint JNICALL Java_com_mcgs_srx_Util_JniUtil_getUsbMode
 /*
  * Class:     com_mcgs_srx_Util_JniUtil
  * Method:    setUsbMode
- * Signature: (I)V
+ * Signature: (I)I
  */
-JNIEXPORT void JNICALL Java_com_mcgs_srx_Util_JniUtil_setUsbMode
+JNIEXPORT jint JNICALL Java_com_mcgs_srx_Util_JniUtil_setUsbMode
   (JNIEnv *, jobject, jint);
 
 /*

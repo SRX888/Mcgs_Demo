@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.mcgs.srx.R;
 import com.mcgs.srx.Util.JniUtil;
+import com.mcgs.srx.Util.Utils;
 
 public class RtcSet extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceClickListener, View.OnClickListener  {
     private TextView title;
@@ -30,6 +31,7 @@ public class RtcSet extends PreferenceActivity implements SharedPreferences.OnSh
     private static final String KEY_USB_RESTORE = "key_restore";
     private static final String KEY_RTC_SET_TIME = "key_rtc_set";
     private JniUtil mJniUtil;
+    private Utils mUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +43,14 @@ public class RtcSet extends PreferenceActivity implements SharedPreferences.OnSh
         mEditTextRtc = (EditTextPreference)findPreference(KEY_RTC_SET_TIME);
         mEditTextRtc.getEditText().setSingleLine();
         mEditTextRtc.getEditText().setFilters(new InputFilter[]{
-                new InputFilter.LengthFilter(3)});
+                new InputFilter.LengthFilter(9)});
         //  mEditTextbrightness.getEditText().addTextChangedListener(prefWatcher);
         mUsbRestore = (Preference) findPreference(KEY_USB_RESTORE);
         mUsbRestore.setOnPreferenceClickListener(this);
 
         mJniUtil = JniUtil.getInstance();
+        mUtils = Utils.getInstance();
+        mUtils.init(this);
     }
 
     @Override
@@ -73,7 +77,9 @@ public class RtcSet extends PreferenceActivity implements SharedPreferences.OnSh
 
             //TODO
             int time= Integer.valueOf(value);
-            mJniUtil.setRtcTime(time);
+            int ret = mJniUtil.setRtcTime(time);
+            mUtils.showErrorDialog(ret);
+
         }
 
 

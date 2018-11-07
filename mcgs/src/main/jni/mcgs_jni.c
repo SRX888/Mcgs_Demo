@@ -30,7 +30,7 @@ JNIEXPORT jint JNICALL Java_com_mcgs_srx_Util_JniUtil_getUsbMode
  * Method:    setUsbMode
  * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_com_mcgs_srx_Util_JniUtil_setUsbMode
+JNIEXPORT jint JNICALL Java_com_mcgs_srx_Util_JniUtil_setUsbMode
         (JNIEnv * env, jobject jobject1, jint jint1){
         int ret = -1;
         if(0 == jint1){
@@ -44,6 +44,7 @@ JNIEXPORT void JNICALL Java_com_mcgs_srx_Util_JniUtil_setUsbMode
           //  LOGV( "jint1 HAL_USB_OTG_UNKNOWN = %d\n", jint1 );
         }
             LOGV( "ret = %d\n", ret );
+            return ret;
 }
 
 /*

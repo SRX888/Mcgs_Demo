@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.mcgs.srx.R;
 import com.mcgs.srx.Util.JniUtil;
+import com.mcgs.srx.Util.Utils;
 
 public class BeeSet extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceClickListener, View.OnClickListener {
     private TextView title;
@@ -30,6 +31,7 @@ public class BeeSet extends PreferenceActivity implements SharedPreferences.OnSh
     private static final String KEY_BEE_SET_TIME = "key_lcd_bee_set";
 
     private JniUtil mJniUtil;
+    private Utils mUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,14 +40,16 @@ public class BeeSet extends PreferenceActivity implements SharedPreferences.OnSh
         setCustomActionBar();
         button_back.setOnClickListener(this);
 
-        mEditTextBee = (EditTextPreference)findPreference(KEY_BEE_SET_TIME);
+        mEditTextBee = (EditTextPreference) findPreference(KEY_BEE_SET_TIME);
         mEditTextBee.getEditText().setSingleLine();
-        mEditTextBee.getEditText().setFilters(new InputFilter[]{
-                new InputFilter.LengthFilter(3)});
+//        mEditTextBee.getEditText().setFilters(new InputFilter[]{
+//                new InputFilter.LengthFilter(3)});
         //  mEditTextbrightness.getEditText().addTextChangedListener(prefWatcher);
         mUsbRestore = (Preference) findPreference(KEY_USB_RESTORE);
         mUsbRestore.setOnPreferenceClickListener(this);
         mJniUtil = JniUtil.getInstance();
+        mUtils = Utils.getInstance();
+        mUtils.init(this);
     }
 
     @Override
@@ -65,14 +69,15 @@ public class BeeSet extends PreferenceActivity implements SharedPreferences.OnSh
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         String value = null;
-     if(key.equals(KEY_BEE_SET_TIME)){
+        if (key.equals(KEY_BEE_SET_TIME)) {
             Log.d("settings", " key:" + key);
             value = mEditTextBee.getSharedPreferences().getString(KEY_BEE_SET_TIME, getString(R.string.mcgs_bee_set_default));
             mEditTextBee.setSummary(value);
 
             //TODO
-         int time = Integer.valueOf(value);
-         mJniUtil.setBeeTime(time);
+            int time = Integer.valueOf(value);
+            int ret = mJniUtil.setBeeTime(time);
+            mUtils.showErrorDialog(ret);
         }
 
 

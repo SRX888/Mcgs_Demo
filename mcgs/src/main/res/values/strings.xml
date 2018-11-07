@@ -1724,4 +1724,12 @@
             "\n""</string>
 
 
+    <string name="error_title">操作错误提示</string>
+    <string name="permission_msg">权限不足(permission denied),添加权限后请重试！</string>
+    <string name="device_msg">设备不存在(NO such device),添加后请重试！</string>
+    <string name="again_msg">(Try again)请重试！</string>
+    <string name="argument_msg">无效参数(Invalid argument),检查后请重试！</string>
+    <string name="space_msg">设备空间不足(NO space left on device),释放空间后请重试！</string>
+
+
 </resources>

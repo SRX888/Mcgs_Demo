@@ -15,12 +15,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.app.ActionBar;
 import android.app.ActionBar.LayoutParams;
 
 import com.mcgs.srx.R;
 import com.mcgs.srx.Util.JniUtil;
+import com.mcgs.srx.Util.Utils;
 
 public class UsbSetting extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceClickListener, OnClickListener {
 
@@ -31,6 +33,7 @@ public class UsbSetting extends PreferenceActivity implements SharedPreferences.
     private Preference mUsbRestore;
     private static final String KEY_USB_RESTORE = "key_restore";
     private static final String KEY_USB_SET = "key_usb_mode";
+    private Utils mUtils;
 
     private JniUtil mJniUtil;
 
@@ -46,6 +49,9 @@ public class UsbSetting extends PreferenceActivity implements SharedPreferences.
         mUsbRestore.setOnPreferenceClickListener(this);
 
         mJniUtil = JniUtil.getInstance();
+        mUtils = Utils.getInstance();
+        mUtils.init(this);
+
     }
 
     @Override
@@ -71,10 +77,9 @@ public class UsbSetting extends PreferenceActivity implements SharedPreferences.
             mUsbmode.setSummary(mUsbmode.getEntry());
             int mode = Integer.valueOf(value);
             //TODO
-            mJniUtil.setUsbMode(mode);
+            int ret = mJniUtil.setUsbMode(mode);
+            mUtils.showErrorDialog(ret);
         }
-
-
     }
 
     private void setCustomActionBar() {

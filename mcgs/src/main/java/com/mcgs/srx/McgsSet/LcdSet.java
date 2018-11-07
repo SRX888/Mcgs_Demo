@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.mcgs.srx.R;
 import com.mcgs.srx.Util.JniUtil;
+import com.mcgs.srx.Util.Utils;
 
 public class LcdSet extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceClickListener, OnClickListener {
     private TextView title;
@@ -37,6 +38,7 @@ public class LcdSet extends PreferenceActivity implements SharedPreferences.OnSh
     private static final int KEY_LCD_CLOSE = 1;
 
     private JniUtil mJniUtil;
+    private Utils mUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,12 +51,13 @@ public class LcdSet extends PreferenceActivity implements SharedPreferences.OnSh
         mEditTextbrightness = (EditTextPreference)findPreference(KEY_LCD_SET_BRIGHTNESS);
         mEditTextbrightness.getEditText().setSingleLine();
         mEditTextbrightness.getEditText().setFilters(new InputFilter[]{
-                new InputFilter.LengthFilter(4)});
-      //  mEditTextbrightness.getEditText().addTextChangedListener(prefWatcher);
+                new InputFilter.LengthFilter(3)});
         mUsbRestore = (Preference) findPreference(KEY_USB_RESTORE);
         mUsbRestore.setOnPreferenceClickListener(this);
 
         mJniUtil = JniUtil.getInstance();
+        mUtils = Utils.getInstance();
+        mUtils.init(this);
     }
 
     @Override
@@ -95,12 +98,15 @@ public class LcdSet extends PreferenceActivity implements SharedPreferences.OnSh
             //TODO
             int brightness = Integer.valueOf(value);
             int lcdStatus = mJniUtil.getLcdStatus();
-            if(lcdStatus == KEY_LCD_OPEN){
-                mJniUtil.setBacklightbrightness(brightness);
-                Log.i("srx", "can setBacklightbrightness: ");
-            }else{
-                Log.i("srx", "can not  setBacklightbrightness: ");
-            }
+            Log.i("srx", "lcdStatus: "+lcdStatus);
+          //  if(lcdStatus == KEY_LCD_OPEN){
+            int ret = mJniUtil.setBacklightbrightness(brightness);
+//                Log.i("srx", "can setBacklightbrightness: ");
+//            }else{
+//                Log.i("srx", "can not  setBacklightbrightness: ");
+//            }
+
+            mUtils.showErrorDialog(ret);
 
         }
 
